@@ -55,7 +55,7 @@
         }
 
         .hero {
-            background-image: url('{{ asset('images/sunflower-background.jpg') }}'); /* Cambia esto al path de tu imagen */
+            background-image: url('{{ asset('imgs/sunflowerbghome.png') }}');
             background-size: cover;
             background-position: center;
             height: 80vh;
