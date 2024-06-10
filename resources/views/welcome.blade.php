@@ -121,8 +121,8 @@
             <a href="#">Quienes somos</a>
             <a href="#">Centro general de padres</a>
             <a href="#">Galería</a>
-            <a href="#">Solicitud de matrícula</a>
             <a href="#">Especialistas</a>
+            <a href="#">Solicitud de matrícula</a>
             <a href="{{ route('login') }}" class="btn">Iniciar sesión</a>
         </nav>
     </header>
