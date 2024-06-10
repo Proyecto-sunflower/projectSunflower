@@ -54,7 +54,7 @@
             border-radius: 5px;
         }
 
-        .hero {
+        .title {
             background-image: url('{{ asset('imgs/sunflowerbghome.png') }}');
             background-size: cover;
             background-position: center;
@@ -62,18 +62,22 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             text-align: center;
             color: #fff;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .title h1 {
+            font-size: 7rem;
             margin: 0;
+            margin-left: 35px;
+            text-shadow: 2px 2px 2px #000;
         }
 
-        .hero p {
-            font-size: 1.5rem;
+        .title p {
+            font-size: 2rem;
+            margin-left: 35px;
+            text-shadow: 2px 2px 2px #000;
         }
 
         .footer {
@@ -92,7 +96,7 @@
 </head>
 <body class="antialiased">
     <header class="header">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo Colegio Sunflower">
+        <img src="{{ asset('imgs/logo.png') }}" alt="Logo Colegio Sunflower">
         <nav class="navbar">
             <a href="#">Home</a>
             <a href="#">Quienes somos</a>
@@ -104,7 +108,7 @@
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="title">
         <h1>Colegio Sunflower</h1>
         <p>Insertar slogan aquí</p>
     </section>
