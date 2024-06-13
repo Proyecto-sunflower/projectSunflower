@@ -25,26 +25,32 @@
         }
 
         .header {
-            background-color: #fff;
-            padding: 10px 20px;
+            background: linear-gradient(to right, rgba(232, 172, 18, 1), rgba(51, 51, 51, 0));
+            padding-top: 10px;
+            padding-bottom: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: absolute;
+            width: 97%;
         }
 
         .header img {
-            height: 50px;
+            height: 100px;
+            margin-left: 30px;
         }
 
         .navbar {
             display: flex;
-            gap: 15px;
+            gap: 30px;
         }
 
         .navbar a {
             text-decoration: none;
             color: #000;
             font-weight: bold;
+            align-self: center;
+            font-size: 1.25rem;
         }
 
         .navbar a.btn {
@@ -54,65 +60,81 @@
             border-radius: 5px;
         }
 
-        .hero {
+        .title {
             background-image: url('{{ asset('imgs/sunflowerbghome.png') }}');
+            position: absolute;
             background-size: cover;
             background-position: center;
-            height: 80vh;
+            height: 100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             text-align: center;
             color: #fff;
+            z-index: -1;
         }
 
-        .hero h1 {
-            font-size: 4rem;
+        .title h1 {
+            font-size: 7rem;
             margin: 0;
+            margin-left: 35px;
+            text-shadow: 2px 2px 2px #000;
         }
 
-        .hero p {
-            font-size: 1.5rem;
+        .title p {
+            font-size: 2rem;
+            margin-left: 35px;
+            text-shadow: 2px 2px 2px #000;
         }
 
         .footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
+            background: linear-gradient(to right, rgba(232, 172, 18, 1), rgba(51, 51, 51, 0));
+            position: absolute;
+            width: 97%;
+            bottom: 0;
+            height: 10%;
+            display: flex;
+            align-items: center;
         }
 
-        .footer a {
+        .footer p {
+            margin-left: 20px;
             color: #fff;
-            text-decoration: none;
-            margin: 0 5px;
+            text-shadow: 2px 2px 2px #000;
+            font-size: 1.25rem;
+        }
+
+        .footer img {
+            margin-left: 10px;
+            width: 32px;
+            height: 32px;
         }
     </style>
 </head>
 <body class="antialiased">
     <header class="header">
-        <img src="{{ asset('images/logo.png') }}" alt="Logo Colegio Sunflower">
+        <img src="{{ asset('imgs/logo.png') }}" alt="Logo Colegio Sunflower">
         <nav class="navbar">
-            <a href="#">Home</a>
+            <a href="#">Inicio</a>
             <a href="#">Quienes somos</a>
             <a href="#">Centro general de padres</a>
             <a href="#">Galería</a>
-            <a href="#">Solicitud de matrícula</a>
             <a href="#">Especialistas</a>
+            <a href="#">Solicitud de matrícula</a>
             <a href="{{ route('login') }}" class="btn">Iniciar sesión</a>
         </nav>
     </header>
 
-    <section class="hero">
+    <section class="title">
         <h1>Colegio Sunflower</h1>
         <p>Insertar slogan aquí</p>
     </section>
 
     <footer class="footer">
-        <p>Síguenos en nuestras redes sociales:</p>
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
+        <p>Síguenos en nuestras redes sociales</p>
+        <a href="https://www.facebook.com/groups/1323247857789710/?hoisted_section_header_type=recently_seen&multi_permalinks=5707977009316751"><img src="{{ asset('imgs/facebook.png') }}"></a>
     </footer>
 </body>
 </html>
