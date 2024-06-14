@@ -39,7 +39,25 @@ use App\Http\Controllers\Auth\UpdatePasswordController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/about-us', function () {
+    return view('home.aboutUs');
+})->name('aboutUs');
 
+Route::get('/gallery', function () {
+    return view('home.gallery');
+})->name('gallery');
+
+Route::get('/general-parent-center', function () {
+    return view('home.generalParentCenter');
+})->name('generalParentCenter');
+
+Route::get('/registration-application', function () {
+    return view('home.registrationApplication');
+})->name('registrationApplication');
+
+Route::get('/specialists', function () {
+    return view('home.specialist');
+})->name('specialist');
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
