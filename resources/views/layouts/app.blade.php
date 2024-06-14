@@ -24,16 +24,32 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-   
+
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <!-- Styles -->
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+        }
+        p{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+
 </head>
 <body>
     <div id="app">
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-white border-btm-e6">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <i class="bi bi-house"></i> {{ config('app.name', 'Laravel') }}
+                    <p>Colegio sunflower</p>
+                    <p>Iniciar sesión</p>
+
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -67,7 +83,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="nav-link" href="{{ route('login') }}">Iniciar sesión</a>
                                 </li>
                             @endif
                         @else
@@ -102,8 +118,5 @@
         </main>
     </div>
 
-    <div id="watermark">
-        <p>Unifiedtransform</p>
-    </div>
 </body>
 </html>
