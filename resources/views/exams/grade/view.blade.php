@@ -8,23 +8,23 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-file-text"></i> View Grading Systems
+                        <i class="bi bi-file-text"></i> Ver calificaciones<!--View Grading Systems-->
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">View Grading Systems</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ver calificaciones</li>
                         </ol>
                     </nav>
                     <div class="mb-4 p-3 bg-white border shadow-sm">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col">System Name</th>
-                                    <th scope="col">Class</th>
-                                    <th scope="col">Semester</th>
-                                    <th scope="col">Created At</th>
-                                    <th scope="col">Actions</th>
+                                    <th scope="col">Asignatura</th>
+                                    <!--<th scope="col">Clase</th>-->
+                                    <th scope="col">Semestre</th>
+                                    <!--<th scope="col">Creado en</th>-->
+                                    <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -37,8 +37,8 @@
                                         <td>{{$gradingSystem->created_at}}</td>
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="{{route('exam.grade.system.rule.create', ['grading_system_id' => $gradingSystem->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Add Rule</a>
-                                                <a href="{{route('exam.grade.system.rule.show', ['grading_system_id' => $gradingSystem->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> View Rules</a>
+                                                <a href="{{route('exam.grade.system.rule.create', ['grading_system_id' => $gradingSystem->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Añadir regla</a>
+                                                <a href="{{route('exam.grade.system.rule.show', ['grading_system_id' => $gradingSystem->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Ver reglas</a>
                                             </div>
                                         </td>
                                     </tr>
