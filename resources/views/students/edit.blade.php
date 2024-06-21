@@ -12,9 +12,9 @@
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Student List</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Edit Student</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Lista de Estudiantes</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Editar Estudiante</li>
                         </ol>
                     </nav>
 
@@ -25,20 +25,20 @@
                             <input type="hidden" name="student_id" value="{{$student->id}}">
                             <div class="row g-3">
                                 <div class="col-3">
-                                    <label for="inputFirstName" class="form-label">First Name<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputFirstName" name="first_name" placeholder="First Name" required value="{{$student->first_name}}">
+                                    <label for="inputFirstName" class="form-label">Nombre<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputFirstName" name="first_name" placeholder="Nombre " required value="{{$student->first_name}}">
                                 </div>
                                 <div class="col-3">
-                                    <label for="inputLastName" class="form-label">Last Name<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputLastName" name="last_name" placeholder="Last Name" required value="{{$student->last_name}}">
+                                    <label for="inputLastName" class="form-label">Apellido<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputLastName" name="last_name" placeholder="Apellido" required value="{{$student->last_name}}">
                                 </div>
                                 <div class="col-3">
                                     <label for="inputEmail4" class="form-label">Email<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="email" class="form-control" id="inputEmail4" name="email" required value="{{$student->email}}">
                                 </div>
                                 <div class="col-3">
-                                    <label for="inputBirthday" class="form-label">Birthday<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="date" class="form-control" id="inputBirthday" name="birthday" placeholder="Birthday" required value="{{$student->birthday}}">
+                                    <label for="inputBirthday" class="form-label">Fecha de Nacimiento<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="date" class="form-control" id="inputBirthday" name="birthday" placeholder="Fecha de Nacimiento" required value="{{$student->birthday}}">
                                 </div>
                                 <div class="col-3">
                                     <label for="inputAddress" class="form-label">Address<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
