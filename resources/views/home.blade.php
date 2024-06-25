@@ -1,3 +1,5 @@
+<title>Sunflower School | Sistema de administración</title>
+
 @extends('layouts.app')
 
 @section('content')
@@ -81,16 +83,10 @@
                     <div class="row align-items-md-stretch mt-4">
                         <div class="col">
                             <div class="p-3 text-white bg-dark rounded-3">
-                                <h3>Bienvenidos a Sunflower School</h3>
-                                <p><i class="bi bi-emoji-heart-eyes"></i> Gracias por su cariño y apoyo.</p>
+                                <h3>Bienvenidos al sistema de administración del Sunflower School</h3>
                             </div>
                         </div>
-                        <div class="col">
-                            <div class="p-3 bg-white border rounded-3" style="height: 100%;">
-                                <h3>Gestionar mejor el colegio</h3>
-                                <p class="text-end">with <i class="bi bi-lightning"></i> <a href="https://github.com/changeweb/Unifiedtransform" target="_blank" style="text-decoration: none;">Unifiedtransform</a> <i class="bi bi-lightning"></i>.</p>
-                            </div>
-                        </div>
+
                     </div>
                     <div class="row mt-4">
                         <div class="col-lg-6">

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Colegio Sunflower | Solicitud de Matrícula</title>
+    <title>Sunflower School | Solicitud de Matrícula</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -130,7 +130,7 @@
 </head>
 <body>
     <header class="header">
-        <img src="{{ asset('imgs/logo.png') }}" alt="Logo Colegio Sunflower">
+        <img src="{{ asset('imgs/logo.png') }}" alt="Logo Sunflower School">
         <nav class="navbar">
             <a href="{{ url('/') }}">Inicio</a>
             <a href="{{ route('aboutUs') }}">Quienes somos</a>

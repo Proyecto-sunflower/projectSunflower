@@ -21,7 +21,7 @@
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Crear Sesión</h6>
                                     <p class="text-danger">
-                                        <small><i class="bi bi-exclamation-diamond-fill me-2"></i> Crear una sesión por año académico. La última sesión creada se considerará como la última sesión académica.  <!--Create one Session per academic year. Last created session will be considered as the latest academic session.--></small> 
+                                        <small><i class="bi bi-exclamation-diamond-fill me-2"></i> Crear una sesión por año académico. La última sesión creada se considerará como la última sesión académica.  <!--Create one Session per academic year. Last created session will be considered as the latest academic session.--></small>
                                     </p>
                                     <form action="{{route('school.session.store')}}" method="POST">
                                         @csrf
@@ -248,7 +248,7 @@
                                         </p>
                                         <div class="form-check form-switch">
                                             <input class="form-check-input" type="checkbox" name="marks_submission_status" id="marks_submission_status_check" {{($academic_setting->marks_submission_status == 'on')?'checked="checked"':null}}>
-                                            <label class="form-check-label" for="marks_submission_status_check">{{($academic_setting->marks_submission_status == 'on')?'Allowed':'Disallowed'}}</label>
+                                            <label class="form-check-label" for="marks_submission_status_check">{{($academic_setting->marks_submission_status == 'on')?'Activado':'Desactivado'}}</label>
                                         </div>
                                         <button type="submit" class="mt-3 btn btn-sm btn-outline-primary"><i class="bi bi-check2"></i> Guardar</button>
                                     </form>
@@ -267,7 +267,7 @@
     function getSectionsAndCourses(obj) {
         var class_id = obj.options[obj.selectedIndex].value;
 
-        var url = "{{route('get.sections.courses.by.classId')}}?class_id=" + class_id 
+        var url = "{{route('get.sections.courses.by.classId')}}?class_id=" + class_id
 
         fetch(url)
         .then((resp) => resp.json())
