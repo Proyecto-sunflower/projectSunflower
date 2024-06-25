@@ -8,13 +8,13 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-file-post"></i> Create Assignment
+                        <i class="bi bi-file-post"></i> Crear tarea<!--Create Assignment-->
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">My Courses</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Create Assignment</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Mis cursos</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Crear tarea<!--Create Assignment--></li>
                         </ol>
                     </nav>
                     @include('session-messages')
