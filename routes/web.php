@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ExamController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ManageGradesController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\EventController;
@@ -98,6 +99,8 @@ Route::middleware(['auth'])->group(function () {
 
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+    Route::get('/manageGrades', [ManageGradesController::class, 'index'])->name('manage.manage-grades');
 
     // Attendance
     Route::get('/attendances', [AttendanceController::class, 'index'])->name('attendance.index');
