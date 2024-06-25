@@ -6,12 +6,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/locale/es.js"></script> <!-- Añadir el script de idioma español -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script>
-    // A modified version of codes from
-    // https://www.positronx.io/create-events-in-laravel-using-fullcalendar-and-jquery-ajax/
     $(document).ready(function () {
-
         var SITEURL = "{{ url('/') }}";
 
         $.ajaxSetup({
@@ -26,17 +24,18 @@
                 center: 'title',
                 right: 'month,agendaWeek,agendaDay'
             },
-            height: {{($editable == 'true')?500:"parent"}},
+            locale: 'es', // Configurar el idioma a español
+            height: {{($editable == 'true') ? 500 : "parent"}},
             groupByResource: true,
             defaultView: 'month',
             editable: {{$editable}},
-            eventLimit: true, // when too many events in a day, show the popover
+            eventLimit: true,
             events: SITEURL + '/calendar-event',
             displayEventTime: true,
             selectable: {{$selectable}},
             selectHelper: {{$selectable}},
             select: function (event_start, event_end) {
-                var event_name = prompt("Event Name:");
+                var event_name = prompt("Nombre del evento:");
                 if (event_name) {
                     var event_start = $.fullCalendar.formatDate(event_start, "Y-MM-DD HH:mm:ss");
                     var event_end = $.fullCalendar.formatDate(event_end, "Y-MM-DD HH:mm:ss");
@@ -50,7 +49,7 @@
                         },
                         type: "POST",
                         success: function (data) {
-                            displayMessage("Event created.");
+                            displayMessage("Evento creado.");
 
                             calendar.fullCalendar('renderEvent', {
                                 id: data.id,
@@ -78,13 +77,13 @@
                     },
                     type: "POST",
                     success: function (response) {
-                        displayMessage("Event updated");
+                        displayMessage("Evento actualizado");
                     }
                 });
             },
             eventClick: function (event) {
                 if({{$selectable}}){
-                    var eventDelete = confirm("Are you sure to delete?");
+                    var eventDelete = confirm("¿Estás seguro de que deseas eliminarlo?");
                     if (eventDelete) {
                         $.ajax({
                             type: "POST",
@@ -95,7 +94,7 @@
                             },
                             success: function (response) {
                                 calendar.fullCalendar('removeEvents', event.id);
-                                displayMessage("Event removed");
+                                displayMessage("Evento eliminado");
                             }
                         });
                     }
@@ -105,7 +104,6 @@
     });
 
     function displayMessage(message) {
-        toastr.success(message, 'Event');            
+        toastr.success(message, 'Evento');
     }
-
 </script>
