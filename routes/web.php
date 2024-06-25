@@ -24,6 +24,7 @@ use App\Http\Controllers\SchoolSessionController;
 use App\Http\Controllers\AcademicSettingController;
 use App\Http\Controllers\AssignedTeacherController;
 use App\Http\Controllers\Auth\UpdatePasswordController;
+use App\Http\Controllers\EnrollmentApplicationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,6 +55,8 @@ Route::get('/general-parent-center', function () {
 Route::get('/registration-application', function () {
     return view('home.registrationApplication');
 })->name('registrationApplication');
+
+Route::post('/registration-application', [EnrollmentApplicationController::class, 'store'])->name('registrationApplication.store');
 
 Route::get('/specialists', function () {
     return view('home.specialist');
@@ -193,5 +196,5 @@ Route::middleware(['auth'])->group(function () {
 
     // Update password
     Route::get('password/edit', [UpdatePasswordController::class, 'edit'])->name('password.edit');
-    Route::post('password/edit', [UpdatePasswordController::class, 'update'])->name('password.update');
+    //Route::post('password/edit', [UpdatePasswordController::class, 'update'])->name('password.update');
 });

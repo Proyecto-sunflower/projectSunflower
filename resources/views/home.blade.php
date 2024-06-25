@@ -14,7 +14,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Total Students</div>
+                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Estudiantes Totales</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{$studentCount}}</span>
                                     </div>
@@ -26,7 +26,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Total Teachers</div>
+                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Profesores Totales</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{$teacherCount}}</span>
                                     </div>
@@ -38,7 +38,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-diagram-3 me-3"></i> Total Classes</div>
+                                            <div class="fw-bold"><i class="bi bi-diagram-3 me-3"></i> Clases Totales</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{ $classCount }}</span>
                                     </div>
@@ -50,7 +50,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold">Total Books</div>
+                                            <div class="fw-bold">Libros Totales</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">800</span>
                                     </div>
@@ -62,8 +62,8 @@
                     <div class="mt-3 d-flex align-items-center">
                         <div class="col-3">
                             <span class="ps-2 me-2">Students %</span>
-                            <span class="badge rounded-pill border" style="background-color: #0678c8;">Male</span>
-                            <span class="badge rounded-pill border" style="background-color: #49a4fe;">Female</span>
+                            <span class="badge rounded-pill border" style="background-color: #0678c8;">Hombre</span>
+                            <span class="badge rounded-pill border" style="background-color: #49a4fe;">Mujer</span>
                         </div>
                         @php
                         $maleStudentPercentage = round(($maleStudentsBySession/$studentCount), 2) * 100;
@@ -81,13 +81,13 @@
                     <div class="row align-items-md-stretch mt-4">
                         <div class="col">
                             <div class="p-3 text-white bg-dark rounded-3">
-                                <h3>Welcome to Unifiedtransform!</h3>
-                                <p><i class="bi bi-emoji-heart-eyes"></i> Thanks for your love and support.</p>
+                                <h3>Bienvenidos a Sunflower School</h3>
+                                <p><i class="bi bi-emoji-heart-eyes"></i> Gracias por su cariño y apoyo.</p>
                             </div>
                         </div>
                         <div class="col">
                             <div class="p-3 bg-white border rounded-3" style="height: 100%;">
-                                <h3>Manage school better</h3>
+                                <h3>Gestionar mejor el colegio</h3>
                                 <p class="text-end">with <i class="bi bi-lightning"></i> <a href="https://github.com/changeweb/Unifiedtransform" target="_blank" style="text-decoration: none;">Unifiedtransform</a> <i class="bi bi-lightning"></i>.</p>
                             </div>
                         </div>
@@ -95,7 +95,7 @@
                     <div class="row mt-4">
                         <div class="col-lg-6">
                             <div class="card mb-3">
-                                <div class="card-header bg-transparent"><i class="bi bi-calendar-event me-2"></i> Events</div>
+                                <div class="card-header bg-transparent"><i class="bi bi-calendar-event me-2"></i> Eventos</div>
                                 <div class="card-body text-dark">
                                     @include('components.events.event-calendar', ['editable' => 'false', 'selectable' => 'false'])
                                     {{-- <div class="overflow-auto" style="height: 250px;">
@@ -103,7 +103,7 @@
                                             <a href="#" class="list-group-item list-group-item-action">
                                                 <div class="d-flex w-100 justify-content-between">
                                                 <h5 class="mb-1">List group item heading</h5>
-                                                <small>3 days ago</small>
+                                                <small>Hace 3 días</small>
                                                 </div>
                                                 <p class="mb-1">Some placeholder content in a paragraph.</p>
                                                 <small>And some small print.</small>
@@ -115,7 +115,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="card mb-3">
-                                <div class="card-header bg-transparent d-flex justify-content-between"><span><i class="bi bi-megaphone me-2"></i> Notices</span> {{ $notices->links() }}</div>
+                                <div class="card-header bg-transparent d-flex justify-content-between"><span><i class="bi bi-megaphone me-2"></i> Avisos</span> {{ $notices->links() }}</div>
                                 <div class="card-body p-0 text-dark">
                                     <div>
                                         @isset($notices)
@@ -134,7 +134,7 @@
                                             @endforeach
                                             @endisset
                                             @if(count($notices) < 1)
-                                                <div class="p-3">No notices</div>
+                                                <div class="p-3">Sin avisos</div>
                                             @endif
                                         </div>
                                     </div>
