@@ -1,3 +1,5 @@
+<title>Sunflower School | Administrar notas</title>
+
 @extends('layouts.app')
 
 @section('content')
@@ -34,7 +36,7 @@
                         <label for="selectCourse" class="form-label">Filtrar lista por<sup><i class="bi bi-asterisk text-danger"></i></sup>:</label>
                         <select type="" class="form-control" id="selectCourse" name="course_Selection" style="margin-bottom: 40px;">
                             <option value="" disabled selected>Seleccione el curso</option>
-                        </select>   
+                        </select>
                     </div>
                     <div class="mb-4 p-3 bg-white border shadow-sm">
                         <table class="table">

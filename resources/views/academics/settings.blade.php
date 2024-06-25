@@ -1,3 +1,5 @@
+<title>Sunflower School | Configurar año académico</title>
+
 @extends('layouts.app')
 
 @section('content')
