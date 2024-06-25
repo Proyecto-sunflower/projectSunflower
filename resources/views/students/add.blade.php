@@ -1,3 +1,4 @@
+<title>Sunflower School | Agregar estudiante</title>
 @extends('layouts.app')
 
 @section('content')
@@ -40,12 +41,12 @@
                                         <input type="text" class="form-control" id="inputLastName" name="last_name"
                                             placeholder="Last Name" required value="{{ old('last_name') }}">
                                     </div>
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <label for="inputEmail4" class="form-label">Email<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="email" class="form-control" id="inputEmail4" name="email" required
                                             value="{{ old('email') }}">
-                                    </div>
+                                    </div> --}}
                                     {{-- <div class="col-md-6">
                                     <label for="inputPassword4" class="form-label">Password<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="password" class="form-control" id="inputPassword4" name="password" required>
