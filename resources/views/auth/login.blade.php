@@ -1,3 +1,5 @@
+<title>Sunflower School | Iniciar sesión</title>
+
 @extends('layouts.app')
 
 @section('content')

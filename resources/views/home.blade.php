@@ -1,4 +1,4 @@
-<title>Colegio Sunflower | Sistema de administración</title>
+<title>Sunflower School | Sistema de administración</title>
 
 @extends('layouts.app')
 
@@ -83,7 +83,7 @@
                     <div class="row align-items-md-stretch mt-4">
                         <div class="col">
                             <div class="p-3 text-white bg-dark rounded-3">
-                                <h3>Bienvenidos al sistema de administración del colegio Sunflower</h3>
+                                <h3>Bienvenidos al sistema de administración del Sunflower School</h3>
                             </div>
                         </div>
 

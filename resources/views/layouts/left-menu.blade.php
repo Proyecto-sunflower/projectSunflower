@@ -133,7 +133,7 @@
                     @endif -->
                     @if (Auth::user()->role == "admin")
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('academics*')? 'active' : '' }}" href="{{url('academics/settings')}}"><i class="bi bi-tools"></i> <span class="ms-1 d-inline d-sm-none d-md-none d-xl-inline">Año academico</span></a>
+                        <a class="nav-link {{ request()->is('academics*')? 'active' : '' }}" href="{{url('academics/settings')}}"><i class="bi bi-tools"></i> <span class="ms-1 d-inline d-sm-none d-md-none d-xl-inline">Año académico</span></a>
                     </li>
                     @endif
                     <!-- @if (!session()->has('browse_session_id') && Auth::user()->role == "admin")
