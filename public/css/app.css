@@ -254,7 +254,7 @@ figure.table td {
     color: #000;
     font-weight: bold;
     align-self: center;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .navbar a.btn-login {
@@ -411,5 +411,5 @@ figure.table td {
 
 h1,
 h2 {
-    font-weight: bold;
+    font-weight: 100;
 }
