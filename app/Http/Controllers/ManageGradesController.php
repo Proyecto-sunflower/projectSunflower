@@ -40,22 +40,6 @@ class ManageGradesController extends Controller
     public function index()
     {
         $current_school_session_id = $this->getSchoolCurrentSession();
-
-        $classCount = $this->schoolClassRepository->getAllBySession($current_school_session_id)->count();
-
-        $studentCount = $this->userRepository->getAllStudentsBySessionCount($current_school_session_id);
-
-        $promotionRepository = new PromotionRepository();
-
-        $maleStudentsBySession = $promotionRepository->getMaleStudentsBySessionCount($current_school_session_id);
-
-        $teacherCount = $this->userRepository->getAllTeachers()->count();
-
-        $noticeRepository = new NoticeRepository();
-        $notices = $noticeRepository->getAll($current_school_session_id);
-        
-
-        $current_school_session_id = $this->getSchoolCurrentSession();
         $school_classes = $this->schoolClassRepository->getAllBySession($current_school_session_id);
 
         $courses = $this->courseRepository->getAll($current_school_session_id);
@@ -68,4 +52,22 @@ class ManageGradesController extends Controller
 
         return view('manage.manage-grades', $data);
     }
+
+    public function edit()
+    {
+        $current_school_session_id = $this->getSchoolCurrentSession();
+        $school_classes = $this->schoolClassRepository->getAllBySession($current_school_session_id);
+
+        $courses = $this->courseRepository->getAll($current_school_session_id);
+
+        $data = [
+            'current_school_session_id' => $current_school_session_id,
+            'school_classes'            => $school_classes,
+            'courses'                   => $courses,
+        ];
+
+        return view('manage.manage-student-grades', $data);
+    }
+
+    
 }

@@ -29,33 +29,20 @@
                             <li class="breadcrumb-item active" aria-current="page">Administrar notas</li>
                         </ol>
                     </nav>
-                    <div class="col-md-6">
-                        <label style="margin-bottom: 30px;" class="form-label">Todos los campos con un <sup><i class="bi bi-asterisk text-danger"></i></sup> son obligatorios</label>
-                        <a class="dropdown-item" href="{{url('manageStudentGrades')}}">TEST Administrar nota de estudiante TEST</a>
-                    </div>
-                    <div class="col-md-3">
-                        <label for="selectCourse" class="form-label">Filtrar lista por<sup><i class="bi bi-asterisk text-danger"></i></sup>:</label>
-                        <select type="" class="form-control" id="selectCourse" name="course_Selection" style="margin-bottom: 40px;">
-                            <option value="" disabled selected>Seleccione el curso</option>
-                            @isset($courses)
-                                @foreach ($courses as $course)
-                                <option value="{{$courses}}">{{$course->course_name}}</option>
-                                @endforeach
-                            @endisset
-                        </select>
+                    <div class="col-md-6" style="margin: 40px;">
+                        <label for="selectCourse" class="form-label">Nombre del alumno: </label><br>
+                        <label for="selectCourse" class="form-label">Curso: </label><br>
+                        <label for="selectCourse" class="form-label">Semestre: </label><br>
                     </div>
                     <div class="mb-4 p-3 bg-white border shadow-sm">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th scope="col" style="text-align: center;">RUT</th>
+                                    <th scope="col" style="text-align: center;">Asignatura</th>
                                     <!--<th scope="col">Clase</th>-->
-                                    <th scope="col" style="text-align: center;">Foto</th>
+                                    <th scope="col" style="text-align: center;">Notas parciales</th>
                                     <!--<th scope="col">Creado en</th>-->
-                                    <th scope="col" style="text-align: center;">Nombre</th>
-                                    <th scope="col" style="text-align: center;">Apellido</th>
-                                    <th scope="col" style="text-align: center;">Apoderado</th>
-                                    <th scope="col" style="text-align: center;">Opciones</th>
+                                    <th scope="col" style="text-align: center;">Promedio</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -77,6 +64,9 @@
                                 @endisset
                             </tbody>
                         </table>
+                    </div>
+                    <div style="display: flex; justify-content: center;">
+                        <button type="submit" class="mt-3 btn btn-sm btn-outline-primary" style="align-self: center; color: black; border-color: black;"><i class="bi bi-check2"></i> Guardar</button>
                     </div>
                 </div>
             </div>
