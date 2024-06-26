@@ -36,6 +36,11 @@
                         <label for="selectCourse" class="form-label">Filtrar lista por<sup><i class="bi bi-asterisk text-danger"></i></sup>:</label>
                         <select type="" class="form-control" id="selectCourse" name="course_Selection" style="margin-bottom: 40px;">
                             <option value="" disabled selected>Seleccione el curso</option>
+                            @isset($courses)
+                                @foreach ($courses as $course)
+                                <option value="{{$courses}}">{{$course->course_name}}</option>
+                                @endforeach
+                            @endisset
                         </select>
                     </div>
                     <div class="mb-4 p-3 bg-white border shadow-sm">
