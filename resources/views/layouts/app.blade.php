@@ -45,11 +45,10 @@
 <body>
     <div id="app">
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light border-btm-e6">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <p>Sunflower School</p>
+            <a class="title-schoolname" href="{{ url('/') }}">Sunflower School</a>
 
-                </a>
+
+            <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

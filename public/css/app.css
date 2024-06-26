@@ -249,11 +249,12 @@ figure.table td {
     gap: 30px;
 }
 
+
 .navbar a {
-    text-decoration: none;
     color: #000;
     font-weight: bold;
     align-self: center;
+    text-decoration: none;
     font-size: 1rem;
 }
 
@@ -287,6 +288,12 @@ figure.table td {
     /* Cambiar el color del texto si es necesario */
 }
 
+.title-schoolname{
+    font-size: 1rem;
+    margin-left: 35px;
+
+}
+
 .title {
     background-image: url('../imgs/sunflowerbghome.png');
     position: absolute;
@@ -317,6 +324,15 @@ figure.table td {
     text-align: center;
     color: #000;
     z-index: -1;
+}
+.testimonials-container{
+    position: absolute;
+    right: 25%;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
+    flex-direction: column;
 }
 
 .title h1 {
@@ -353,7 +369,14 @@ figure.table td {
     width: 32px;
     height: 32px;
 }
+.testimonials .testimonial-item {
+    margin-bottom: 20px;
+}
 
+.testimonials .testimonial-item h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
 
 .gallery-title {
     font-size: 2rem;
@@ -412,4 +435,20 @@ figure.table td {
 h1,
 h2 {
     font-weight: 100;
+}
+
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.animate-slideIn {
+    animation: slideIn 0.5s forwards;
 }
