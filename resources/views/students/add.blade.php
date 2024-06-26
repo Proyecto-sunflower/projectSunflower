@@ -83,17 +83,22 @@
                                     <div class="col-md-3">
                                         <label for="inputZip" class="form-label">Zip<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="text" class="form-control" id="inputZip" name="zip"
-                                            required value="{{ old('zip') }}">
+                                        <input type="text" class="form-control" id="inputZip" name="zip" required
+                                            value="{{ old('zip') }}">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="inputState" class="form-label">Gender<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <select id="inputState" class="form-select" name="gender" required>
-                                            <option value="Male" {{ old('gender') == 'male' ? 'selected' : '' }}>Male
+                                            <option value="Male" {{ old('gender') == 'male' ? 'selected' : '' }}>
+                                                Male
                                             </option>
                                             <option value="Female" {{ old('gender') == 'female' ? 'selected' : '' }}>
-                                                Female</option>
+                                                Female
+                                            </option>
+                                            <option value="Female" {{ old('other') == 'other' ? 'selected' : '' }}>
+                                                Other
+                                            </option>
                                         </select>
                                     </div>
                                     <div class="col-md-3">
