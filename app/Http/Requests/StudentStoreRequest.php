@@ -26,19 +26,19 @@ class StudentStoreRequest extends FormRequest
         return [
             'first_name'        => 'required|string',
             'last_name'         => 'required|string',
-            'email'             => 'required|string|email|max:255|unique:users',
+            'email'             => 'nullable|string|email|max:255|unique:users',
             'gender'            => 'required|string',
             'nationality'       => 'required|string',
-            'phone'             => 'required|string',
+            // 'phone'             => 'required|string',
             'address'           => 'required|string',
             'address2'          => 'nullable|string',
             'city'              => 'required|string',
-            'zip'               => 'required|string',
+            'zip'               => 'nullable|string',
             'photo'             => 'nullable|string',
             'birthday'          => 'required|date',
-            'religion'          => 'required|string',
-            'blood_type'        => 'required|string',
-            'password'          => 'required|string|min:8',
+            // 'religion'          => 'required|string',
+            // 'blood_type'        => 'required|string',
+            // 'password'          => 'required|string|min:8',
 
             // Parents' information
             'father_name'       => 'required|string',
@@ -48,10 +48,10 @@ class StudentStoreRequest extends FormRequest
             'parent_address'    => 'required|string',
 
             // Academic information
-            'class_id'          => 'required',
-            'section_id'        => 'required',
-            'board_reg_no'      => 'string',
-            'session_id'        => 'required',
+            'class_id'          => 'nullable|string',
+            'section_id'        => 'nullable|string',
+            //'board_reg_no'      => 'nullable|string',
+            'session_id'        => 'nullable|string',
             'id_card_number'    => 'required',
         ];
     }

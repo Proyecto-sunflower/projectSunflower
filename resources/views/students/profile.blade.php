@@ -125,7 +125,7 @@
                                                 <th scope="row">Class:</th>
                                                 <td>{{$promotion_info->section->schoolClass->class_name}}</td>
                                                 <th>Board Reg. No.:</th>
-                                                <td>{{$student->academic_info->board_reg_no}}</td>
+                                                {{-- <td>{{$student->academic_info->board_reg_no}}</td> --}}
                                             </tr>
                                             <tr>
                                                 <th scope="row">Section:</th>

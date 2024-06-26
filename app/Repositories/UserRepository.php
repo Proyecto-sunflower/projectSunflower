@@ -72,20 +72,20 @@ class UserRepository implements UserInterface {
                 $student = User::create([
                     'first_name'    => $request['first_name'],
                     'last_name'     => $request['last_name'],
-                    'email'         => $request['email'],
+                    'email'         => !empty($request['email']) ? $request['email'] : null,
                     'gender'        => $request['gender'],
                     'nationality'   => $request['nationality'],
-                    'phone'         => $request['phone'],
+                    'phone'         => !empty($request['phone']) ? $request['phone'] : null,
                     'address'       => $request['address'],
                     'address2'      => $request['address2'],
                     'city'          => $request['city'],
                     'zip'           => $request['zip'],
                     'photo'         => (!empty($request['photo']))?$this->convert($request['photo']):null,
                     'birthday'      => $request['birthday'],
-                    'religion'      => $request['religion'],
-                    'blood_type'    => $request['blood_type'],
+                    // 'religion'      => $request['religion'],
+                    // 'blood_type'    => $request['blood_type'],
                     'role'          => 'student',
-                    'password'      => Hash::make($request['password']),
+                    // 'password'      => Hash::make($request['password']),
                 ]);
 
                 // Store Parents' information
@@ -124,17 +124,17 @@ class UserRepository implements UserInterface {
                 User::where('id', $request['student_id'])->update([
                     'first_name'    => $request['first_name'],
                     'last_name'     => $request['last_name'],
-                    'email'         => $request['email'],
+                    // 'email'         => $request['email'],
                     'gender'        => $request['gender'],
                     'nationality'   => $request['nationality'],
-                    'phone'         => $request['phone'],
+                    // 'phone'         => $request['phone'],
                     'address'       => $request['address'],
                     'address2'      => $request['address2'],
                     'city'          => $request['city'],
                     'zip'           => $request['zip'],
                     'birthday'      => $request['birthday'],
-                    'religion'      => $request['religion'],
-                    'blood_type'    => $request['blood_type'],
+                    // 'religion'      => $request['religion'],
+                    // 'blood_type'    => $request['blood_type'],
                 ]);
 
                 // Update Parents' information
@@ -183,7 +183,7 @@ class UserRepository implements UserInterface {
                 $class_id = $schoolClass->id;
                 $section_id = $section->id;
             }
-            
+
         }
         try {
             $promotionRepository = new PromotionRepository();

@@ -16,7 +16,6 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Total de Estudiantes</div>
                                             <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Estudiantes Totales</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{$studentCount}}</span>
@@ -29,7 +28,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Total de Profesores</div>
+
                                             <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Profesores Totales</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{$teacherCount}}</span>
@@ -42,7 +41,6 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-diagram-3 me-3"></i> Total de Clases</div>
                                             <div class="fw-bold"><i class="bi bi-diagram-3 me-3"></i> Clases Totales</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{ $classCount }}</span>
@@ -63,15 +61,12 @@
                             </div>
                         </div> --}}
                     </div>
-                    @if($studentCount > 0)
+                    {{-- @if($studentCount > 0)
                     <div class="mt-3 d-flex align-items-center">
                         <div class="col-3">
                             <span class="ps-2 me-2">Estudiantes %</span>
                             <span class="badge rounded-pill border" style="background-color: #0678c8;">Hombres</span>
                             <span class="badge rounded-pill border" style="background-color: #49a4fe;">Mujeres</span>
-                            <span class="ps-2 me-2">Students %</span>
-                            <span class="badge rounded-pill border" style="background-color: #0678c8;">Hombre</span>
-                            <span class="badge rounded-pill border" style="background-color: #49a4fe;">Mujer</span>
                         </div>
                         @php
                         $maleStudentPercentage = round(($maleStudentsBySession/$studentCount), 2) * 100;
@@ -85,7 +80,7 @@
                             <div class="progress-bar progress-bar-striped" role="progressbar" {!!$femaleStudentPercentageStyle!!} aria-valuenow="{{$femaleStudentPercentage}}" aria-valuemin="0" aria-valuemax="100">{{$femaleStudentPercentage}}%</div>
                           </div>
                     </div>
-                    @endif
+                    @endif --}}
                     <div class="row align-items-md-stretch mt-4">
                         <div class="col">
                             <div class="p-3 text-white bg-dark rounded-3">
@@ -97,7 +92,7 @@
                     <div class="row mt-4">
                         <div class="col-lg-6">
                             <div class="card mb-3">
-                                <div class="card-header bg-transparent"><i class="bi bi-calendar-event me-2"></i> Eventos</div>
+
                                 <div class="card-header bg-transparent"><i class="bi bi-calendar-event me-2"></i> Eventos</div>
                                 <div class="card-body text-dark">
                                     @include('components.events.event-calendar', ['editable' => 'false', 'selectable' => 'false'])
@@ -118,7 +113,6 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="card mb-3">
-                                <div class="card-header bg-transparent d-flex justify-content-between"><span><i class="bi bi-megaphone me-2"></i> Noticias</span> {{ $notices->links() }}</div>
                                 <div class="card-header bg-transparent d-flex justify-content-between"><span><i class="bi bi-megaphone me-2"></i> Avisos</span> {{ $notices->links() }}</div>
                                 <div class="card-body p-0 text-dark">
                                     <div>
@@ -138,7 +132,6 @@
                                             @endforeach
                                             @endisset
                                             @if(count($notices) < 1)
-                                                <div class="p-3">Np hay noticias :c</div>
                                                 <div class="p-3">Sin avisos</div>
                                             @endif
                                         </div>

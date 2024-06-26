@@ -35,7 +35,7 @@
                                 </div>
                             </div>
                             @endif
-                            <div class="col-md-4 mb-4">
+                            {{-- <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Buscar por sesión</h6>
                                     <p class="text-danger">
@@ -56,7 +56,7 @@
                                     <button class="btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-check2"></i> Colocar <!--Set--></button>
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
                             @if ($latest_school_session_id == $current_school_session_id)
                             <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
@@ -80,7 +80,7 @@
                                 </form>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-4">
+                            {{-- <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Tipo de asistencia <!--Attendance Type--></h6>
                                     <p class="text-danger">
@@ -104,7 +104,7 @@
                                         <button type="submit" class="mt-3 btn btn-sm btn-outline-primary"><i class="bi bi-check2"></i> Guardar</button>
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Crear asignatura</h6>
@@ -237,7 +237,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-4">
+                            {{-- <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Permitir el envío de calificaciones finales<!--Allow Final Marks Submission--></h6>
                                     <form action="{{route('school.final.marks.submission.status.update')}}" method="POST">
@@ -255,7 +255,7 @@
                                         <button type="submit" class="mt-3 btn btn-sm btn-outline-primary"><i class="bi bi-check2"></i> Guardar</button>
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
                             @endif
                         </div>
                     </div>
