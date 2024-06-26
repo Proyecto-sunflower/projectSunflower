@@ -15,13 +15,13 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Teacher
+                        <i class="bi bi-person-lines-fill"></i> Profesor
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                          <li class="breadcrumb-item"><a href="{{route('teacher.list.show')}}">Teacher List</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Profile</li>
+                          <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
+                          <li class="breadcrumb-item"><a href="{{route('teacher.list.show')}}">Lista de Profesores</a></li>
+                          <li class="breadcrumb-item active" aria-current="page">Perfil</li>
                         </ol>
                     </nav>
                     <div class="mb-4">
@@ -46,39 +46,39 @@
                             </div>
                             <div class="col-sm-8 col-md-9">
                                 <div class="p-3 mb-3 border rounded bg-white">
-                                    <h6>Teacher Information</h6>
+                                    <h6>Informacion del Profesor</h6>
                                     <table class="table table-responsive mt-3">
                                         <tbody>
                                             <tr>
-                                                <th scope="row">First Name:</th>
+                                                <th scope="row">Nombre:</th>
                                                 <td>{{$teacher->first_name}}</td>
-                                                <th>Last Name:</th>
+                                                <th>Apellido:</th>
                                                 <td>{{$teacher->last_name}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Email:</th>
                                                 <td>{{$teacher->email}}</td>
-                                                <th scope="row">Nationality:</th>
+                                                <th scope="row">Nacionalidad:</th>
                                                 <td>{{$teacher->nationality}}</td>
                                             </tr>
                                             <tr>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Address:</th>
+                                                <th scope="row">Direccion:</th>
                                                 <td>{{$teacher->address}}</td>
-                                                <th>Address2:</th>
+                                                <th>Direccion 2:</th>
                                                 <td>{{$teacher->address2}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">City:</th>
+                                                <th scope="row">Ciudad:</th>
                                                 <td>{{$teacher->city}}</td>
-                                                <th>Zip:</th>
+                                                <th>Codigo postal:</th>
                                                 <td>{{$teacher->zip}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Phone:</th>
+                                                <th scope="row">Telefono:</th>
                                                 <td>{{$teacher->phone}}</td>
-                                                <th>Gender:</th>
+                                                <th>Género:</th>
                                                 <td>{{$teacher->gender}}</td>
                                             </tr>
                                             <tr>
