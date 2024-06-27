@@ -86,7 +86,28 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="badge bg-light text-dark">{{ ucfirst(Auth::user()->role) }}</span>
+                                    <span class="badge bg-light text-dark">
+                                        @php
+                                            $role = Auth::user()->role;
+                                        @endphp
+
+                                        @switch($role)
+                                            @case('admin')
+                                                Administrador
+                                                @break
+
+                                            @case('teacher')
+                                                Profesor
+                                                @break
+
+                                            @case('student')
+                                                Estudiante
+                                                @break
+
+                                            @default
+                                                {{ ucfirst($role) }}
+                                        @endswitch
+                                    </span>
                                     {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                                 </a>
 
