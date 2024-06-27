@@ -24,7 +24,7 @@ class TeacherAssignRequest extends FormRequest
     public function rules()
     {
         return [
-            'course_id'             => 'required|integer',
+            // 'course_id'             => 'required|integer',
             'semester_id'           => 'required|integer',
             'class_id'              => 'required|integer',
             'section_id'            => 'required|integer',

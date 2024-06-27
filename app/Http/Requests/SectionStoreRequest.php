@@ -25,7 +25,7 @@ class SectionStoreRequest extends FormRequest
     {
         return [
             'section_name'  => 'required',
-            'room_no'       => 'required',
+            // 'room_no'       => 'required',
             'class_id'      => 'required|integer|gt:0',
             'session_id'    => 'required|integer|gt:0',
         ];

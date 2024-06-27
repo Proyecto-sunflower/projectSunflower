@@ -54,12 +54,12 @@
                                                                         </h2>
                                                                         <div id="accordionClass{{$school_class->id}}Section{{$school_section->id}}" class="accordion-collapse collapse" aria-labelledby="headingClass{{$school_class->id}}Section{{$school_section->id}}" data-bs-parent="#accordionClass{{$school_class->id}}">
                                                                             <div class="accordion-body">
-                                                                                <p class="lead d-flex justify-content-between">
+                                                                                {{-- <p class="lead d-flex justify-content-between">
                                                                                     <span>Room No: {{$school_section->room_no}}</span>
                                                                                     @can('edit sections')
                                                                                     <span><a href="{{route('section.edit', ['id' => $school_section->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-pencil"></i> Editar</a></span>
                                                                                     @endcan
-                                                                                </p>
+                                                                                </p> --}}
                                                                                 <div class="list-group">
                                                                                     <a href="{{route('student.list.show', ['class_id' => $school_class->id, 'section_id' => $school_section->id, 'section_name' => $school_section->section_name])}}" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
                                                                                         Ver estudiantes
