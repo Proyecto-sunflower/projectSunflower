@@ -21,7 +21,7 @@
                         <table class="table table-responsive">
                             <thead>
                                 <tr>
-                                    <th scope="col">Foto</th>
+                                    {{-- <th scope="col">Foto</th> --}}
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Apellido</th>
                                     <th scope="col">Email</th>
@@ -32,13 +32,13 @@
                             <tbody>
                                 @foreach ($teachers as $teacher)
                                 <tr>
-                                    <td>
+                                    {{-- <td>
                                         @if (isset($teacher->photo))
                                             <img src="{{asset('/storage'.$teacher->photo)}}" class="rounded" alt="Espacio para: Foto de perfil" height="30" width="30">
                                         @else
                                             <i class="bi bi-person-square"></i>
                                         @endif
-                                    </td>
+                                    </td> --}}
                                     <td>{{$teacher->first_name}}</td>
                                     <td>{{$teacher->last_name}}</td>
                                     <td>{{$teacher->email}}</td>
