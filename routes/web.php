@@ -101,6 +101,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     Route::get('/manageGrades', [ManageGradesController::class, 'index'])->name('manage.manage-grades');
+    Route::get('/manageStudentGrades', [ManageGradesController::class, 'edit'])->name('manage.manage-student-grades');
 
     // Attendance
     Route::get('/attendances', [AttendanceController::class, 'index'])->name('attendance.index');

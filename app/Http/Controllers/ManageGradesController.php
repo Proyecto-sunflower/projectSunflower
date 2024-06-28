@@ -8,6 +8,7 @@ use App\Interfaces\UserInterface;
 use App\Repositories\NoticeRepository;
 use App\Interfaces\SchoolClassInterface;
 use App\Interfaces\SchoolSessionInterface;
+use App\Interfaces\CourseInterface;
 use App\Repositories\PromotionRepository;
 
 class ManageGradesController extends Controller
@@ -22,12 +23,13 @@ class ManageGradesController extends Controller
      * @return void
      */
     public function __construct(
-        UserInterface $userRepository, SchoolSessionInterface $schoolSessionRepository, SchoolClassInterface $schoolClassRepository)
+        UserInterface $userRepository, SchoolSessionInterface $schoolSessionRepository, SchoolClassInterface $schoolClassRepository, CourseInterface $courseRepository)
     {
         // $this->middleware('auth');
         $this->userRepository = $userRepository;
         $this->schoolSessionRepository = $schoolSessionRepository;
         $this->schoolClassRepository = $schoolClassRepository;
+        $this->courseRepository = $courseRepository;
     }
 
     /**
@@ -38,20 +40,34 @@ class ManageGradesController extends Controller
     public function index()
     {
         $current_school_session_id = $this->getSchoolCurrentSession();
+        $school_classes = $this->schoolClassRepository->getAllBySession($current_school_session_id);
 
-        $classCount = $this->schoolClassRepository->getAllBySession($current_school_session_id)->count();
+        $courses = $this->courseRepository->getAll($current_school_session_id);
 
-        $studentCount = $this->userRepository->getAllStudentsBySessionCount($current_school_session_id);
+        $data = [
+            'current_school_session_id' => $current_school_session_id,
+            'school_classes'            => $school_classes,
+            'courses'                   => $courses,
+        ];
 
-        $promotionRepository = new PromotionRepository();
-
-        $maleStudentsBySession = $promotionRepository->getMaleStudentsBySessionCount($current_school_session_id);
-
-        $teacherCount = $this->userRepository->getAllTeachers()->count();
-
-        $noticeRepository = new NoticeRepository();
-        $notices = $noticeRepository->getAll($current_school_session_id);
-
-        return view('manage.manage-grades');
+        return view('manage.manage-grades', $data);
     }
+
+    public function edit()
+    {
+        $current_school_session_id = $this->getSchoolCurrentSession();
+        $school_classes = $this->schoolClassRepository->getAllBySession($current_school_session_id);
+
+        $courses = $this->courseRepository->getAll($current_school_session_id);
+
+        $data = [
+            'current_school_session_id' => $current_school_session_id,
+            'school_classes'            => $school_classes,
+            'courses'                   => $courses,
+        ];
+
+        return view('manage.manage-student-grades', $data);
+    }
+
+    
 }
