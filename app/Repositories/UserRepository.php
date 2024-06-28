@@ -77,7 +77,7 @@ class UserRepository implements UserInterface {
                     'nationality'   => $request['nationality'],
                     'phone'         => !empty($request['phone']) ? $request['phone'] : null,
                     'address'       => $request['address'],
-                    'address2'      => $request['address2'],
+                    'address2'      => !empty($request['address2']) ? $request['address2'] : null,
                     'city'          => $request['city'],
                     'zip'           => $request['zip'],
                     'photo'         => (!empty($request['photo']))?$this->convert($request['photo']):null,
