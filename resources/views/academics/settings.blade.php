@@ -21,9 +21,9 @@
                             @if ($latest_school_session_id == $current_school_session_id)
                             <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
-                                    <h6>Crear Sesión</h6>
+                                    <h6>Crear año académico</h6>
                                     <p class="text-danger">
-                                        <small><i class="bi bi-exclamation-diamond-fill me-2"></i> Crear una sesión por año académico. La última sesión creada se considerará como la última sesión académica.  <!--Create one Session per academic year. Last created session will be considered as the latest academic session.--></small>
+                                        <small><i class="bi bi-exclamation-diamond-fill me-2"></i> Es imporante primero crear el año académico para poder usar las funciones del sistema</small>
                                     </p>
                                     <form action="{{route('school.session.store')}}" method="POST">
                                         @csrf
@@ -35,6 +35,45 @@
                                 </div>
                             </div>
                             @endif
+                            @if ($latest_school_session_id == $current_school_session_id)
+                            <div class="col-md-4 mb-4">
+                                <div class="p-3 border bg-light shadow-sm">
+                                    <h6>Crear semestre para el añó académico actual</h6>
+                                    <form action="{{route('school.semester.create')}}" method="POST">
+                                        @csrf
+                                    <input type="hidden" name="session_id" value="{{$current_school_session_id}}">
+                                    <div class="mt-2">
+                                        <p>Nombre del semestre<sup><i class="bi bi-asterisk text-primary"></i></sup></p>
+                                        <input type="text" class="form-control form-control-sm" placeholder="Ej: Primer Semestre 2024" aria-label="Semester name" name="semester_name" required>
+                                    </div>
+                                    <div class="mt-2">
+                                        <label for="inputStarts" class="form-label">Empieza<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="date" class="form-control form-control-sm" id="inputStarts" placeholder="Starts" name="start_date" required>
+                                    </div>
+                                    <div class="mt-2">
+                                        <label for="inputEnds" class="form-label">Termina<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="date" class="form-control form-control-sm" id="inputEnds" placeholder="Ends" name="end_date" required>
+                                    </div>
+                                    <button type="submit" class="mt-3 btn btn-sm btn-outline-primary"><i class="bi bi-check2"></i> Crear</button>
+                                </form>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="p-3 border bg-light shadow-sm">
+                                    <h6>Crear curso</h6>
+                                    <p class="text-danger">
+                                        <small><i class="bi bi-exclamation-diamond-fill me-2"></i> Ej: A,B,C,D...</small>
+                                    </p>
+                                    <form action="{{route('school.class.create')}}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="session_id" value="{{$current_school_session_id}}">
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control form-control-sm" name="class_name" placeholder="Nombre Asignatura" aria-label="Class name" required>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-check2"></i> Crear</button>
+                                    </form>
+                                </div>
+                            </div>
                             {{-- <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Buscar por sesión</h6>
@@ -57,29 +96,7 @@
                                     </form>
                                 </div>
                             </div> --}}
-                            @if ($latest_school_session_id == $current_school_session_id)
-                            <div class="col-md-4 mb-4">
-                                <div class="p-3 border bg-light shadow-sm">
-                                    <h6>Crear semestre para la sesión actual <!--Create Semester for Current Session--></h6>
-                                    <form action="{{route('school.semester.create')}}" method="POST">
-                                        @csrf
-                                    <input type="hidden" name="session_id" value="{{$current_school_session_id}}">
-                                    <div class="mt-2">
-                                        <p>Nombre del semestre<sup><i class="bi bi-asterisk text-primary"></i></sup></p>
-                                        <input type="text" class="form-control form-control-sm" placeholder="Ej: Primer Semestre 2024" aria-label="Semester name" name="semester_name" required>
-                                    </div>
-                                    <div class="mt-2">
-                                        <label for="inputStarts" class="form-label">Empieza<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="date" class="form-control form-control-sm" id="inputStarts" placeholder="Starts" name="start_date" required>
-                                    </div>
-                                    <div class="mt-2">
-                                        <label for="inputEnds" class="form-label">Termina<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="date" class="form-control form-control-sm" id="inputEnds" placeholder="Ends" name="end_date" required>
-                                    </div>
-                                    <button type="submit" class="mt-3 btn btn-sm btn-outline-primary"><i class="bi bi-check2"></i> Crear</button>
-                                </form>
-                                </div>
-                            </div>
+
                             {{-- <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Tipo de asistencia <!--Attendance Type--></h6>
@@ -105,33 +122,24 @@
                                     </form>
                                 </div>
                             </div> --}}
+
                             <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
-                                    <h6>Crear asignatura</h6>
-                                    <form action="{{route('school.class.create')}}" method="POST">
-                                        @csrf
-                                        <input type="hidden" name="session_id" value="{{$current_school_session_id}}">
-                                        <div class="mb-3">
-                                            <input type="text" class="form-control form-control-sm" name="class_name" placeholder="Nombre Asignatura" aria-label="Class name" required>
-                                        </div>
-                                        <button class="btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-check2"></i> Crear</button>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="p-3 border bg-light shadow-sm">
-                                <h6>Crear sección</h6>
+                                <h6>Crear nivel</h6>
+                                <p class="text-danger">
+                                    <small><i class="bi bi-exclamation-diamond-fill me-2"></i> Ej: 1,2,3,4...8</small>
+                                </p>
                                     <form action="{{route('school.section.create')}}" method="POST">
                                         @csrf
                                         <input type="hidden" name="session_id" value="{{$current_school_session_id}}">
                                         <div class="mb-3">
                                             <input class="form-control form-control-sm" name="section_name" type="text" placeholder="Nombre Sección" required>
                                         </div>
-                                        <div class="mb-3">
+                                        {{-- <div class="mb-3">
                                             <input class="form-control form-control-sm" name="room_no" type="text" placeholder="Room No." required>
-                                        </div>
+                                        </div> --}}
                                         <div>
-                                            <p>Asignar sesión a la clase:</p>
+                                            <p>Asignar grado al curso:</p>
                                             <select class="form-select form-select-sm" aria-label=".form-select-sm" name="class_id" required>
                                                 @isset($school_classes)
                                                     @foreach ($school_classes as $school_class)
@@ -144,9 +152,10 @@
                                     </form>
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-4">
+                            {{-- <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Crear curso</h6>
+
                                     <form action="{{route('school.course.create')}}" method="POST">
                                         @csrf
                                         <input type="hidden" name="session_id" value="{{$current_school_session_id}}">
@@ -185,7 +194,8 @@
                                         <button class="btn btn-sm btn-outline-primary" type="submit"><i class="bi bi-check2"></i> Crear</button>
                                     </form>
                                 </div>
-                            </div>
+                            </div> --}}
+
                             <div class="col-md-4 mb-4">
                                 <div class="p-3 border bg-light shadow-sm">
                                     <h6>Asignar profesor/a</h6>
@@ -228,11 +238,11 @@
                                             <select class="form-select form-select-sm" id="section-select" aria-label=".form-select-sm" name="section_id" required>
                                             </select>
                                         </div>
-                                        <div>
+                                        {{-- <div>
                                             <p class="mt-2">Asignar al curso:<sup><i class="bi bi-asterisk text-primary"></i></sup></p>
                                             <select class="form-select form-select-sm" id="course-select" aria-label=".form-select-sm" name="course_id" required>
                                             </select>
-                                        </div>
+                                        </div> --}}
                                         <button type="submit" class="mt-3 btn btn-sm btn-outline-primary"><i class="bi bi-check2"></i> Guardar</button>
                                     </form>
                                 </div>

@@ -30,7 +30,7 @@ class SectionRepository implements SectionInterface {
         try {
             Section::find($request->section_id)->update([
                 'section_name'  => $request->section_name,
-                'room_no'       => $request->room_no,
+                // 'room_no'       => $request->room_no,
             ]);
         } catch (\Exception $e) {
             throw new \Exception('Failed to update School Section. '.$e->getMessage());

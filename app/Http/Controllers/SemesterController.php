@@ -14,7 +14,7 @@ class SemesterController extends Controller
     public function __construct(SemesterInterface $semesterRepository) {
         $this->semesterRepository = $semesterRepository;
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -26,7 +26,7 @@ class SemesterController extends Controller
         try {
             $this->semesterRepository->create($request->validated());
 
-            return back()->with('status', 'Semester creation was successful!');
+            return back()->with('status', '¡El semestre ha sido creado exitosamente!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }

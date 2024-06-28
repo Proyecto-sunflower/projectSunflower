@@ -15,7 +15,7 @@ class TeacherStoreRequest extends FormRequest
     {
         return auth()->user()->can('create users');
     }
-    
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -29,11 +29,11 @@ class TeacherStoreRequest extends FormRequest
             'email'         => 'required|string|email|max:255|unique:users',
             'gender'        => 'required|string',
             'nationality'   => 'required|string',
-            'phone'         => 'required|string',
+            'phone'         => 'required|string|regex:/^\+\d{2}9\d{8}$/|min:10',
             'address'       => 'required|string',
             'address2'      => 'string',
             'city'          => 'required|string',
-            'zip'           => 'required|string',
+            'zip'           => 'nullable|string',
             'photo'         => 'nullable|string',
             'password'      => 'required|string|min:8',
         ];

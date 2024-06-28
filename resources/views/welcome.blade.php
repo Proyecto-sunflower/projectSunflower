@@ -52,7 +52,7 @@
         </a>
     </footer>
 
-    <script>
+    {{-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             const links = document.querySelectorAll('.navbar a');
 
@@ -70,7 +70,7 @@
                 });
             });
         });
-    </script>
+    </script> --}}
 
 </body>
 

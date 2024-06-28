@@ -52,7 +52,7 @@ class StudentStoreRequest extends FormRequest
             'section_id'        => 'nullable|string',
             //'board_reg_no'      => 'nullable|string',
             'session_id'        => 'nullable|string',
-            'id_card_number'    => 'required',
+            'id_card_number'    => 'required|string|regex:/^\d{2,3}\.\d{3}\.\d{3}-[\dK]$/', // to R.U.T
         ];
     }
 }

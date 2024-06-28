@@ -19,7 +19,7 @@ class CreateAssignedTeachersTable extends Migration
             $table->unsignedInteger('semester_id');
             $table->unsignedInteger('class_id');
             $table->unsignedInteger('section_id');
-            $table->unsignedInteger('course_id');
+            // $table->unsignedInteger('course_id');
             $table->unsignedInteger('session_id');
             $table->timestamps();
         });

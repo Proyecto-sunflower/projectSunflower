@@ -64,18 +64,18 @@
                                             placeholder="Birthday" required value="{{ old('birthday') }}">
                                     </div>
                                     <div class="col-3-md">
-                                        <label for="inputAddress" class="form-label">Dirección<sup><i
+                                        <label for="inputAddress" class="form-label">Dirección principal<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputAddress" name="address"
                                             placeholder="Ej: Avenida Génerica #123" required value="{{ old('address') }}">
                                     </div>
                                     <div class="col-3-md">
-                                        <label for="inputAddress2" class="form-label">Dirección 2</label>
+                                        <label for="inputAddress2" class="form-label">Dirección #2</label>
                                         <input type="text" class="form-control" id="inputAddress2" name="address2"
                                             placeholder="Ej: Avenida Génerica #123" value="{{ old('address2') }}">
                                     </div>
                                     <div class="col-3-md">
-                                        <input type="checkbox" id="sameAddress" name="sameaAddress">
+                                        <input type="checkbox" id="sameAddress" name="sameAddress" onchange="toggleSecondaryAddress()">
                                         <label for="sameAddress"> ¿Misma dirección?</label><br>
                                     </div>
 
@@ -140,12 +140,12 @@
                                             <option {{ old('religion') == 'Others' ? 'selected' : '' }}>Other</option>
                                         </select>
                                     </div> --}}
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <label for="inputPhone" class="form-label">Télefono<sup><i
                                                     class="bi bi-asterisk text-primary "></i></sup></label>
                                         <input type="text" class="form-control" id="inputPhone" name="phone"
                                             placeholder="+880 01......" required value="{{ old('phone') }}">
-                                    </div>
+                                    </div> --}}
                                     <div class="col-5-md">
                                         <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
@@ -165,14 +165,14 @@
                                             value="{{ old('father_name') }}">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputFatherPhone" class="form-label">Teléfono del apoderado
+                                        <label for="inputFatherPhone" class="form-label">Teléfono  apoderado
                                             principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputFatherPhone"
                                             name="father_phone" placeholder="+569......" required
                                             value="{{ old('father_phone') }}">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputMotherName" class="form-label">Apoderado secundario<sup><i
+                                        <label for="inputMotherName" class="form-label">Apoderado suplente<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputMotherName"
                                             name="mother_name" placeholder="Nombre del apoderado/a" required
@@ -180,18 +180,31 @@
                                     </div>
                                     <div class="col-md-3">
                                         <label for="inputMotherPhone" class="form-label">Teléfono apoderado
-                                            secundario<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                            suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputMotherPhone"
                                             name="mother_phone" placeholder="+569......" required
                                             value="{{ old('mother_name') }}">
                                     </div>
                                     <div class="col-4-md">
-                                        <label for="inputParentAddress" class="form-label">Dirección<sup><i
+                                        <label for="inputParentAddress" class="form-label">Dirección apoderado principal<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputParentAddress"
                                             name="parent_address" placeholder="634 Main St" required
                                             value="{{ old('parent_address') }}">
                                     </div>
+
+                                    <div class="col-4-md">
+                                        <label for="inputParentAddress" class="form-label">Dirección apoderado suplente<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputParentAddress"
+                                            name="parent_address" placeholder="634 Main St" required
+                                            value="{{ old('parent_address') }}">
+                                    </div>
+                                    <div class="col-3-md">
+                                        <input type="checkbox" id="sameAddressParents" name="sameAddressParents" onchange="toggleSecondaryAddress()">
+                                        <label for="sameAddressParents"> ¿Misma dirección?</label><br>
+                                    </div>
+
                                 </div>
                                 <div class="row mt-4 g-3">
                                     <h6>Información académica</h6>
@@ -261,6 +274,25 @@
                 .catch(function(error) {
                     console.log(error);
                 });
+        }
+        function toggleSecondaryAddress() {
+            const secondaryAddress = document.getElementById('inputAddress2');
+            if (document.getElementById('sameAddress').checked) {
+                secondaryAddress.disabled = true;
+                secondaryAddress.value = document.getElementById('inputAddress').value;
+                secondaryAddress.style.cursor = "not-allowed";
+            } else {
+                secondaryAddress.disabled = false;
+                secondaryAddress.value = "";
+                secondaryAddress.style.cursor = "auto";
+            }
+        }
+
+        function syncSecondaryAddress() {
+            const secondaryAddress = document.getElementById('inputAddress2');
+            if (document.getElementById('sameAddress').checked) {
+                secondaryAddress.value = document.getElementById('inputAddress').value;
+            }
         }
     </script>
     @include('components.photos.photo-input')

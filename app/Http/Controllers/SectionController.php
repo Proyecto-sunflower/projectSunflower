@@ -14,14 +14,14 @@ use App\Interfaces\SchoolSessionInterface;
 class SectionController extends Controller
 {
     use SchoolSession;
-    
+
     protected $schoolSectionRepository;
     protected $schoolSessionRepository;
     protected $courseRepository;
 
     /**
     * Create a new Controller instance
-    * 
+    *
     * @param SectionInterface $schoolSectionRepository
     * @return void
     */
@@ -62,7 +62,7 @@ class SectionController extends Controller
         try {
             $this->schoolSectionRepository->create($request->validated());
 
-            return back()->with('status', 'Section creation was successful!');
+            return back()->with('status', '¡El año académico se ha creado con éxito!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }

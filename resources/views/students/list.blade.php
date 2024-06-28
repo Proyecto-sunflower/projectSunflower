@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<title>Sunflower School | Lista de Estudiantes</title>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-start">
@@ -41,7 +43,7 @@
                         </form>
                         @foreach ($studentList as $student)
                             @if ($loop->first)
-                                <p class="mt-3"><b>Sección:</b> {{$student->section->section_name}}</p>
+                                <p class="mt-3"><b>Sección:</b> {{$student->section->section_name}} </p>
                                 @break
                             @endif
                         @endforeach
@@ -49,12 +51,12 @@
                             <table class="table table-responsive">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Foto</th>
+                                        <th scope="col">R.U.T</th>
+                                        {{-- <th scope="col">Foto</th> --}}
                                         <th scope="col">Nombre</th>
                                         <th scope="col">Apellido</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Telefono</th>
+                                        {{-- <th scope="col">Email</th> --}}
+                                        {{-- <th scope="col">Telefono</th> --}}
                                         <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
@@ -62,21 +64,21 @@
                                     @foreach ($studentList as $student)
                                     <tr>
                                         <th scope="row">{{$student->id_card_number}}</th>
-                                        <td>
+                                        {{-- <td>
                                             @if (isset($student->student->photo))
                                                 <img src="{{asset('/storage'.$student->student->photo)}}" class="rounded" alt="Foto de perfil" height="30" width="30">
                                             @else
                                                 <i class="bi bi-person-square"></i>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td>{{$student->student->first_name}}</td>
                                         <td>{{$student->student->last_name}}</td>
-                                        <td>{{$student->student->email}}</td>
-                                        <td>{{$student->student->phone}}</td>
+                                        {{-- <td>{{$student->student->email}}</td>
+                                        <td>{{$student->student->phone}}</td> --}}
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="{{route('student.attendance.show', ['id' => $student->student->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Asistencia</a>
-                                                <a href="{{url('students/view/profile/'.$student->student->id)}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Perfil</a>
+                                                {{-- <a href="{{route('student.attendance.show', ['id' => $student->student->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Asistencia</a>
+                                                <a href="{{url('students/view/profile/'.$student->student->id)}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Perfil</a> --}}
                                                 @can('edit users')
                                                 <a href="{{route('student.edit.show', ['id' => $student->student->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-pen"></i> Editar</a>
                                                 @endcan
@@ -99,7 +101,7 @@
     function getSections(obj) {
         var class_id = obj.options[obj.selectedIndex].value;
 
-        var url = "{{route('get.sections.courses.by.classId')}}?class_id=" + class_id 
+        var url = "{{route('get.sections.courses.by.classId')}}?class_id=" + class_id
 
         fetch(url)
         .then((resp) => resp.json())
