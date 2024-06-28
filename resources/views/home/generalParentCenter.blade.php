@@ -7,9 +7,6 @@
     <title>Sunflower School | Centro General de Padres</title>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-
-
-
 </head>
 <body>
     <header class="header">
@@ -24,12 +21,12 @@
             <a href="{{ route('login') }}" class="btn">Iniciar sesión</a>
         </nav>
     </header>
-    <h1 class="mb-4">Encargados del centro general de padres</h1>
+    <h1 class="general-parent-title">Encargados del centro general de padres</h1>
     <div id="app" class="page">
         <div class="general-parent-container">
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-md-4 text-center">
-                    <div class="card mb-4">
+                    <div class="card-parent">
                         <img src="{{ asset('imgs/member1.png') }}" class="card-img-top" alt="Foto miembro 1">
                         <div class="card-body">
                             <h5 class="card-title">Nombre miembro 1</h5>
@@ -38,7 +35,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
-                    <div class="card mb-4">
+                    <div class="card-parent">
                         <img src="{{ asset('imgs/member2.png') }}" class="card-img-top" alt="Foto miembro 2">
                         <div class="card-body">
                             <h5 class="card-title">Nombre miembro 2</h5>
@@ -47,7 +44,7 @@
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
-                    <div class="card mb-4">
+                    <div class="card-parent">
                         <img src="{{ asset('imgs/member3.png') }}" class="card-img-top" alt="Foto miembro 3">
                         <div class="card-body">
                             <h5 class="card-title">Nombre miembro 3</h5>
@@ -58,24 +55,20 @@
             </div>
         </div>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const links = document.querySelectorAll('.navbar a');
             const app = document.getElementById('app');
-
             links.forEach(link => {
                 link.addEventListener('click', function (e) {
                     e.preventDefault();
                     const target = this.getAttribute('href');
-
                     app.classList.add('page-exit');
                     setTimeout(() => {
                         window.location.href = target;
                     }, 500);
                 });
             });
-
             window.addEventListener('pageshow', function (event) {
                 if (event.persisted) {
                     app.classList.remove('page-exit');
