@@ -18,7 +18,7 @@ class AssignedTeacherController extends Controller
 
     /**
     * Create a new Controller instance
-    * 
+    *
     * @param SchoolSessionInterface $schoolSessionRepository
     * @return void
     */
@@ -51,7 +51,7 @@ class AssignedTeacherController extends Controller
         if($teacher_id == null) {
             abort(404);
         }
-        
+
         $current_school_session_id = $this->getSchoolCurrentSession();
 
         $semesters = $this->semesterRepository->getAll($current_school_session_id);
@@ -63,7 +63,7 @@ class AssignedTeacherController extends Controller
         } else {
             $courses = $assignedTeacherRepository->getTeacherCourses($current_school_session_id, $teacher_id, $semester_id);
         }
-        
+
         $data = [
             'courses'               => $courses,
             'semesters'             => $semesters,
@@ -95,7 +95,7 @@ class AssignedTeacherController extends Controller
             $assignedTeacherRepository = new AssignedTeacherRepository();
             $assignedTeacherRepository->assign($request->validated());
 
-            return back()->with('status', 'Assigning teacher was successful!');
+            return back()->with('status', '¡La asignación de profesor se ha realizado con éxito!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }

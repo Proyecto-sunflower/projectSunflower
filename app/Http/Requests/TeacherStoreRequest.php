@@ -31,7 +31,7 @@ class TeacherStoreRequest extends FormRequest
             'nationality'   => 'required|string',
             'phone'         => 'required|string|regex:/^\+\d{2}9\d{8}$/|min:10',
             'address'       => 'required|string',
-            'address2'      => 'string',
+            'address2'      => 'nullable|string',
             'city'          => 'required|string',
             'zip'           => 'nullable|string',
             'photo'         => 'nullable|string',

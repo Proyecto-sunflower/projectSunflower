@@ -161,13 +161,13 @@ class UserRepository implements UserInterface {
                     'nationality'   => $request['nationality'],
                     'phone'         => $request['phone'],
                     'address'       => $request['address'],
-                    'address2'      => $request['address2'],
+                    'address2'      => !empty($request['address2']) ? $request['address2'] : null,
                     'city'          => $request['city'],
-                    'zip'           => $request['zip'],
+                    'zip'           => !empty($request['zip']) ? $request['zip'] : null,
                 ]);
             });
         } catch (\Exception $e) {
-            throw new \Exception('Failed to update Teacher. '.$e->getMessage());
+            throw new \Exception('Error al actualizar, se ha detectado el siguiente error:  '.$e->getMessage());
         }
     }
 
