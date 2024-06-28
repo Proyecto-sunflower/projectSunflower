@@ -24,7 +24,7 @@
     <h1 class="general-parent-title">Encargados del centro general de padres</h1>
     <div id="app" class="page">
         <div class="general-parent-container">
-            <div class="row justify-content-center">
+            <div class="row-parent justify-content-center">
                 <div class="col-md-4 text-center">
                     <div class="card-parent">
                         <img src="{{ asset('imgs/member1.png') }}" class="card-img-top" alt="Foto miembro 1">

@@ -406,7 +406,7 @@ figure.table td {
     flex-direction: column;
 }
 
-.row {
+.row-parent {
     display: flex;
     gap: 5%;
     justify-content: space-around;
