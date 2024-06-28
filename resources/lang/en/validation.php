@@ -41,7 +41,7 @@ return [
     'digits_between' => 'El campo :attribute debe tener entre :min y :max dígitos.',
     'dimensions' => 'El campo :attribute tiene dimensiones de imagen inválidas.',
     'distinct' => 'El campo :attribute tiene un valor duplicado.',
-    'email' => 'El campo :attribute debe ser una dirección de correo electrónico válida.',
+    'email' => 'El dirección de correo electrónico debe ser válido.',
     'ends_with' => 'El campo :attribute debe terminar con uno de los siguientes valores: :values.',
     'exists' => 'El campo :attribute seleccionado es inválido.',
     'file' => 'El campo :attribute debe ser un archivo.',
@@ -135,11 +135,19 @@ return [
     |
     */
 
-    'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
-        ],
+'custom' => [
+    'address2' => [
+        'string' => 'La dirección #2 debe ser válida.',
     ],
+    'zip' => [
+        'string' => 'El código postal debe ser válido.',
+    ],
+    'phone' =>
+    [
+        'regex' => 'El número de teléfono debe ser válido.',
+        'min' => 'El número de teléfono debe tener al menos 8 dígitos.',
+    ],
+],
 
     /*
     |--------------------------------------------------------------------------
