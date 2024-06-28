@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Colegio Sunflower</title>
+    <title>Sunflower School | Quienes somos</title>
 
     <link rel="shortcut icon" href="{{ asset('favicon_io/favicon.ico') }}">
     <link rel="shortcut icon" sizes="16x16" href="{{ asset('favicon_io/favicon-16x16.png') }}">
@@ -136,7 +136,7 @@
 
 <body class="antialiased">
     <header class="header">
-        <img src="{{ asset('imgs/logo.png') }}" alt="Logo Colegio Sunflower">
+        <img src="{{ asset('imgs/logo.png') }}" alt="Logo Sunflower School">
         <nav class="navbar">
             <a href="{{ url('/') }}">Inicio</a>
             <a href="{{ route('aboutUs') }}">Quienes somos</a>

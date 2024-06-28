@@ -1,3 +1,4 @@
+<title>Sunflower School | Lista de profesores</title>
 @extends('layouts.app')
 
 @section('content')

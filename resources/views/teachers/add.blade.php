@@ -1,3 +1,4 @@
+<title>Sunflower School | Agregar profesor</title>
 @extends('layouts.app')
 
 @section('content')
