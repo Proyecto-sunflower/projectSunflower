@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SchoolSessionStoreRequest extends FormRequest
@@ -24,7 +24,10 @@ class SchoolSessionStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'session_name' => 'required',
+            'session_name' => [
+                'required',
+                Rule::unique('school_sessions', 'session_name')
+            ],
         ];
     }
 }

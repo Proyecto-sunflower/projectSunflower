@@ -15,7 +15,7 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Profesor
+                        <i class="bi bi-person-lines-fill"></i> Perfil de {{$teacher->first_name}} {{$teacher->last_name}}
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -26,7 +26,7 @@
                     </nav>
                     <div class="mb-4">
                         <div class="row">
-                            <div class="col-sm-4 col-md-3">
+                            {{-- <div class="col-sm-4 col-md-3">
                                 <div class="card bg-light">
                                     <div class="px-5 pt-2">
                                         @if (isset($teacher->photo))
@@ -43,8 +43,8 @@
                                         <li class="list-group-item">Phone: {{$teacher->phone}}</li>
                                     </ul>
                                 </div>
-                            </div>
-                            <div class="col-sm-8 col-md-9">
+                            </div> --}}
+                            <div class="col-sm-8 col-md-13">
                                 <div class="p-3 mb-3 border rounded bg-white">
                                     <h6>Informacion del Profesor</h6>
                                     <table class="table table-responsive mt-3">
@@ -64,15 +64,15 @@
                                             <tr>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Direccion:</th>
+                                                <th scope="row">Dirección #1:</th>
                                                 <td>{{$teacher->address}}</td>
-                                                <th>Direccion 2:</th>
+                                                <th>Dirección #2:</th>
                                                 <td>{{$teacher->address2}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Ciudad:</th>
                                                 <td>{{$teacher->city}}</td>
-                                                <th>Codigo postal:</th>
+                                                <th>Código postal:</th>
                                                 <td>{{$teacher->zip}}</td>
                                             </tr>
                                             <tr>

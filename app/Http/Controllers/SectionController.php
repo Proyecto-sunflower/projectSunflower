@@ -62,7 +62,7 @@ class SectionController extends Controller
         try {
             $this->schoolSectionRepository->create($request->validated());
 
-            return back()->with('status', '¡El año académico se ha creado con éxito!');
+            return back()->with('status', '¡El nivel se ha creado con éxito!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }

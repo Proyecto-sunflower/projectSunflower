@@ -24,7 +24,7 @@ class SchoolClassStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'class_name' => 'required',
+            'class_name' => 'required|unique:school_classes,class_name',
             'session_id' => 'required|integer|gt:0',
         ];
     }

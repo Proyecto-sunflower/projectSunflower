@@ -39,12 +39,12 @@
                                 <label for="inputPassword" class="form-label">Contraseña<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                 <input type="password" class="form-control" id="inputPassword" name="password" placeholder="********" required>
                             </div>
-                            <div class="col-md-6">
+                            {{-- <div class="col-md-6">
                                 <label for="formFile" class="form-label">Foto</label>
                                 <input class="form-control" type="file" id="formFile" onchange="previewFile()">
                                 <div id="previewPhoto"></div>
                                 <input type="hidden" id="photoHiddenInput" name="photo" value="">
-                            </div>
+                            </div> --}}
                             <div class="col-md-12">
                                 <label for="inputAddress" class="form-label">Dirección #1<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                 <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Ej: Avenida Génerica #123" required value="{{old('address')}}">
@@ -63,7 +63,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="inputPhone" class="form-label">Teléfono<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="+569......" required value="{{old('phone')}}">
+                                <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="Ej: +56912345678" required value="{{old('phone')}}">
                             </div>
                             <div class="col-md-4">
                                 <label for="inputGender" class="form-label">Género<sup><i class="bi bi-asterisk text-primary"></i></sup></label>

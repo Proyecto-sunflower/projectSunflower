@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>Sunflower School | Editar Estudiante</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-start">
@@ -8,7 +8,7 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Edit Student
+                        <i class="bi bi-person-lines-fill"></i> Editar estudiante
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
@@ -104,31 +104,31 @@
                                 </div>
                             </div>
                             <div class="row mt-4 g-3">
-                                <h6>Parents' Information</h6>
+                                <h6>Información de los apoderados</h6>
                                 <div class="col-3">
-                                    <label for="inputFatherName" class="form-label">Father Name<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <label for="inputFatherName" class="form-label">Apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="text" class="form-control" id="inputFatherName" name="father_name" placeholder="Father Name" required value="{{$parent_info->father_name}}">
                                 </div>
                                 <div class="col-3">
-                                    <label for="inputFatherPhone" class="form-label">Father's Phone<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputFatherPhone" name="father_phone" placeholder="+880 01......" required value="{{$parent_info->father_phone}}">
+                                    <label for="inputFatherPhone" class="form-label">Télefono apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputFatherPhone" name="father_phone" placeholder="Ej: +56912345678" required value="{{$parent_info->father_phone}}">
                                 </div>
                                 <div class="col-3">
-                                    <label for="inputMotherName" class="form-label">Mother Name<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <label for="inputMotherName" class="form-label">Apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="text" class="form-control" id="inputMotherName" name="mother_name" placeholder="Mother Name" required value="{{$parent_info->mother_name}}">
                                 </div>
                                 <div class="col-3">
-                                    <label for="inputMotherPhone" class="form-label">Mother's Phone<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputMotherPhone" name="mother_phone" placeholder="+880 01......" required value="{{$parent_info->mother_phone}}">
+                                    <label for="inputMotherPhone" class="form-label">Télefono apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputMotherPhone" name="mother_phone" placeholder="" required value="{{$parent_info->mother_phone}}">
                                 </div>
-                                <div class="col-4">
-                                    <label for="inputParentAddress" class="form-label">Address<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                {{-- <div class="col-4">
+                                    <label for="inputParentAddress" class="form-label">Direccion<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="text" class="form-control" id="inputParentAddress" name="parent_address" placeholder="634 Main St" required value="{{$parent_info->parent_address}}">
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="row mt-4">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-person-check"></i> Update</button>
+                                    <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-person-check"></i> Actualizar estudiante</button>
                                 </div>
                             </div>
                         </form>

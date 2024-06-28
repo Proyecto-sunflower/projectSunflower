@@ -168,7 +168,7 @@
                                         <label for="inputFatherPhone" class="form-label">Teléfono  apoderado
                                             principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputFatherPhone"
-                                            name="father_phone" placeholder="+569......" required
+                                            name="father_phone" placeholder="Ej: +56912345678" required
                                             value="{{ old('father_phone') }}">
                                     </div>
                                     <div class="col-md-3">
@@ -182,14 +182,14 @@
                                         <label for="inputMotherPhone" class="form-label">Teléfono apoderado
                                             suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputMotherPhone"
-                                            name="mother_phone" placeholder="+569......" required
+                                            name="mother_phone" placeholder="Ej: +56912345678" required
                                             value="{{ old('mother_name') }}">
                                     </div>
                                     <div class="col-4-md">
                                         <label for="inputParentAddress" class="form-label">Dirección apoderado principal<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputParentAddress"
-                                            name="parent_address" placeholder="634 Main St" required
+                                            name="parent_address" placeholder="Ej: Avenida Génerica #123" required
                                             value="{{ old('parent_address') }}">
                                     </div>
 
@@ -197,7 +197,7 @@
                                         <label for="inputParentAddress" class="form-label">Dirección apoderado suplente<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputParentAddress"
-                                            name="parent_address" placeholder="634 Main St" required
+                                            name="parent_address" placeholder="Ej: Avenida Génerica #123" required
                                             value="{{ old('parent_address') }}">
                                     </div>
                                     <div class="col-3-md">

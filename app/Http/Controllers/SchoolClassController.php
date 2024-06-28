@@ -18,7 +18,7 @@ class SchoolClassController extends Controller
 
     /**
     * Create a new Controller instance
-    * 
+    *
     * @param SchoolClassInterface $schoolClassRepository
     * @return void
     */
@@ -64,7 +64,15 @@ class SchoolClassController extends Controller
         try {
             $this->schoolClassRepository->create($request->validated());
 
-            return back()->with('status', 'Class creation was successful!');
+            return back()->with('status', '¡El curso ha sido creado con éxito!');
+        } catch (QueryException $e) {
+
+            $errorCode = $e->errorInfo[1];
+            if($errorCode == 1062){
+                return back()->withError('Este curso ya fue creado.');
+            }
+
+            return back()->withError($e->getMessage());
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
