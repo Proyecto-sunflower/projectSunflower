@@ -30,9 +30,10 @@
                         </ol>
                     </nav>
                     <div class="col-md-6" style="margin: 40px;">
-                        <label for="selectCourse" class="form-label">Nombre del alumno: </label><br>
+                        <label for="selectCourse" class="form-label">Nombre del alumno: {{$student->first_name}} {{$student->last_name}}</label><br>
                         <label for="selectCourse" class="form-label">Curso: </label><br>
-                        <label for="selectCourse" class="form-label">Semestre: </label><br>
+                        <label for="selectCourse" class="form-label">Semestre: {{$current_semester->semester_name}}</label><br>
+                                
                     </div>
                     <div class="mb-4 p-3 bg-white border shadow-sm">
                         <table class="table">
@@ -46,22 +47,36 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @isset($gradingSystems)
-                                    @foreach ($gradingSystems as $gradingSystem)
-                                    <tr>
-                                        <td>{{$gradingSystem->system_name}}</td>
-                                        <td>{{$gradingSystem->schoolClass->class_name}}</td>
-                                        <td>{{$gradingSystem->semester->semester_name}}</td>
-                                        <td>{{$gradingSystem->created_at}}</td>
-                                        <td>
-                                            <div class="btn-group" role="group">
-                                                <a href="{{route('exam.grade.system.rule.create', ['grading_system_id' => $gradingSystem->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-plus"></i> Añadir regla</a>
-                                                <a href="{{route('exam.grade.system.rule.show', ['grading_system_id' => $gradingSystem->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Ver reglas</a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                @endisset
+                                <tr>
+                                    <td>LENG. Y COMUNICACIÓN</td>
+                                </tr>
+                                <tr>
+                                    <td>INGLÉS</td>
+                                </tr>
+                                <tr>
+                                    <td>EDUC. MATEMÁTICAS</td>
+                                </tr>
+                                <tr>
+                                    <td>HISTORIA, GEOGR., Y SOC.</td>
+                                </tr>
+                                <tr>
+                                    <td>CIENCIAS NATURALES</td>
+                                </tr>
+                                <tr>
+                                    <td>EDUC. ARTÍSTICA</td>
+                                </tr>
+                                <tr>
+                                    <td>EDUC. TECNOLÓGICA</td>
+                                </tr>
+                                <tr>
+                                    <td>MÚSICA</td>
+                                </tr>
+                                <tr>
+                                    <td>EDUC. FÍSICA</td>
+                                </tr>
+                                <tr>
+                                    <td>RELIGIÓN</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
