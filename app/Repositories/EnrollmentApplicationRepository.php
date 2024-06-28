@@ -35,7 +35,24 @@ class EnrollmentApplicationRepository implements EnrollmentApplicationInterface 
             });
 
         } catch (\Exception $e) {
-            throw new \Exception('Failed to create Enrollment Application. '.$e->getMessage());
+            throw new \Exception('Error al crear la solicitud'.$e->getMessage());
+        }
+    }
+
+    public function get() {
+        return EnrollmentApplication::all();
+    }
+
+    public function changeToReviewed($id) {
+        try {
+            DB::transaction(function () use ($id) {
+                $enrollmentApplication = EnrollmentApplication::findOrFail($id);
+                $enrollmentApplication->update([
+                    'review_status' => true
+                ]);
+            });
+        } catch (\Exception $e) {
+            throw new \Exception('Error al cambiar el estado.'.$e->getMessage());
         }
     }
 
