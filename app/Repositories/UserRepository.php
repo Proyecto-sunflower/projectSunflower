@@ -58,7 +58,7 @@ class UserRepository implements UserInterface {
                 );
             });
         } catch (\Exception $e) {
-            throw new \Exception('Failed to create Teacher. '.$e->getMessage());
+            throw new \Exception('Error al ingresar profesor, error encontrado:. '.$e->getMessage());
         }
     }
 
