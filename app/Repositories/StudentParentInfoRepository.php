@@ -9,11 +9,11 @@ class StudentParentInfoRepository {
         try {
             StudentParentInfo::create([
                 'student_id'    => $student_id,
-                'father_name'   => $request['father_name'],
-                'father_phone'  => $request['father_phone'],
-                'mother_name'   => $request['mother_name'],
-                'mother_phone'  => $request['mother_phone'],
-                'parent_address'=> $request['parent_address'],
+                'main_parent_name'   => $request['main_parent_name'],
+                'main_parent_phone'  => $request['main_parent_phone'],
+                'substitute_name'   => $request['substitute_name'],
+                'substitute_phone'  => $request['substitute_phone'],
+                'main_parent_address'=> $request['main_parent_address'],
             ]);
         } catch (\Exception $e) {
             throw new \Exception('Failed to create Student Parent information. '.$e->getMessage());
@@ -28,11 +28,11 @@ class StudentParentInfoRepository {
     public function update($request, $student_id) {
         try {
             StudentParentInfo::where('student_id', $student_id)->update([
-                'father_name'   => $request['father_name'],
-                'father_phone'  => $request['father_phone'],
-                'mother_name'   => $request['mother_name'],
-                'mother_phone'  => $request['mother_phone'],
-                'parent_address'=> $request['parent_address'],
+                'main_parent_name'   => $request['main_parent_name'],
+                'main_parent_phone'  => $request['main_parent_phone'],
+                'substitute_name'   => $request['substitute_name'],
+                'substitute_phone'  => $request['substitute_phone'],
+                'main_parent_address'=> $request['main_parent_address'],
             ]);
         } catch (\Exception $e) {
             throw new \Exception('Failed to update Student Parent information. '.$e->getMessage());

@@ -100,19 +100,19 @@
                                         <tbody>
                                             <tr>
                                                 <th scope="row">Nombre del Padre:</th>
-                                                <td>{{$student->parent_info->father_name}}</td>
+                                                <td>{{$student->parent_info->main_parent_name}}</td>
                                                 <th>Nombre de la Madre:</th>
-                                                <td>{{$student->parent_info->mother_name}}</td>
+                                                <td>{{$student->parent_info->substitute_name}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Teléfono del Padre:</th>
-                                                <td>{{$student->parent_info->father_phone}}</td>
+                                                <td>{{$student->parent_info->main_parent_phone}}</td>
                                                 <th>Teléfono de la Madre:</th>
-                                                <td>{{$student->parent_info->mother_phone}}</td>
+                                                <td>{{$student->parent_info->substitute_phone}}</td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Direccion:</th>
-                                                <td colspan="3">{{$student->parent_info->parent_address}}</td>
+                                                <td colspan="3">{{$student->parent_info->main_parent_address}}</td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -41,11 +41,11 @@ class StudentStoreRequest extends FormRequest
             // 'password'          => 'required|string|min:8',
 
             // Parents' information
-            'father_name'       => 'required|string',
-            'father_phone'      => 'required|string',
-            'mother_name'       => 'required|string',
-            'mother_phone'      => 'required|string',
-            'parent_address'    => 'required|string',
+            'main_parent_name'       => 'required|string',
+            'main_parent_phone'      => 'required|string',
+            'substitute_name'       => 'required|string',
+            'substitute_phone'      => 'required|string',
+            'main_parent_address'    => 'required|string',
 
             // Academic information
             'class_id'          => 'nullable|string',
