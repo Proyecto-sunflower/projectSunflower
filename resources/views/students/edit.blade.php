@@ -121,10 +121,14 @@
                                     <label for="inputMotherPhone" class="form-label">Télefono apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="text" class="form-control" id="inputMotherPhone" name="substitute_phone" placeholder="" required value="{{$parent_info->substitute_phone}}">
                                 </div>
-                                {{-- <div class="col-4">
-                                    <label for="inputParentAddress" class="form-label">Direccion<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputParentAddress" name="main_parent_address" placeholder="634 Main St" required value="{{$parent_info->main_parent_address}}">
-                                </div> --}}
+                                <div class="col-4 mt-4">
+                                    <label for="inputMainParentAddress" class="form-label">Dirección apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputMainParentAddress" name="main_parent_address" placeholder="Ej: Avenida Génerica #123" required value="{{$parent_info->main_parent_address}}">
+                                </div>
+                                <div class="col-4 mt-4">
+                                    <label for="inputSubstituteParentAddress" class="form-label">Dirección apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputSubstituteParentAddress" name="substitute_address" placeholder="Ej: Avenida Génerica #123" required value="{{$parent_info->substitute_address}}">
+                                </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col-12">

@@ -14,6 +14,7 @@ class StudentParentInfoRepository {
                 'substitute_name'   => $request['substitute_name'],
                 'substitute_phone'  => $request['substitute_phone'],
                 'main_parent_address'=> $request['main_parent_address'],
+                'substitute_address'=> $request['substitute_address'] ?? '', //!empty($request['substitute_address']) ? $request['substitute_address'] : null
             ]);
         } catch (\Exception $e) {
             throw new \Exception('Failed to create Student Parent information. '.$e->getMessage());
@@ -33,6 +34,7 @@ class StudentParentInfoRepository {
                 'substitute_name'   => $request['substitute_name'],
                 'substitute_phone'  => $request['substitute_phone'],
                 'main_parent_address'=> $request['main_parent_address'],
+                'substitute_address'=> $request['substitute_address'] ?? '', //!empty($request['substitute_address']) ? $request['substitute_address'] : null
             ]);
         } catch (\Exception $e) {
             throw new \Exception('Failed to update Student Parent information. '.$e->getMessage());

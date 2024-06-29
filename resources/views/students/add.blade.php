@@ -197,8 +197,9 @@
                                         <label for="inputParentAddress" class="form-label">Dirección apoderado suplente<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputParentAddress"
-                                            name="main_parent_address" placeholder="Ej: Avenida Génerica #123" required
-                                            value="{{ old('main_parent_address') }}">
+                                            name="substitute_address" placeholder="Ej: Avenida Génerica #123" required
+                                            value="{{ old('substitute_address') }}"
+                                        >
                                     </div>
                                     <div class="col-3-md">
                                         <input type="checkbox" id="sameAddressParents" name="sameAddressParents" onchange="toggleSecondaryAddress()">
