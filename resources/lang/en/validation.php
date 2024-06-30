@@ -135,19 +135,40 @@ return [
     |
     */
 
-'custom' => [
-    'address2' => [
-        'string' => 'La dirección #2 debe ser válida.',
+    'custom' => [
+        'address2' => [
+            'string' => 'La dirección #2 debe ser válida.',
+        ],
+        'zip' => [
+            'string' => 'El código postal debe ser válido.',
+        ],
+        'phone' =>
+        [
+            'regex' => 'El número de teléfono debe ser válido.',
+            'min' => 'El número de teléfono debe tener al menos 8 dígitos.',
+        ],
+        'session_id' => [
+            'required' => 'El año escolar es obligatorio.',
+            'exists' => 'El año escolar seleccionado es ya existe.',
+        ],
+        'class_name' => [
+            'required' => 'El curso es obligatoria.',
+            'unique' => 'El curso seleccionado ya existe.',
+        ],
+        'section_name' => [
+            'required' => 'El nivel es obligatoria.',
+            'unique' => 'El nivel ya existe en el curso seleccionado.',
+        ],
+        'id_card_number' => [
+            'required' => 'El R.U.T es obligatorio.',
+            'unique' => 'El R.U.T ya existe.',
+            'min' => 'El R.U.T debe tener al menos 10 dígitos.',
+            'max' => 'El R.U.T no debe tener más de 10 dígitos.',
+            'no_spaces' => 'El R.U.T no debe tener espacios.',
+            'no_regex' => 'El R.U.T debe ser válido.',
+            'regex' => 'El R.U.T debe ser válido.',
+        ],
     ],
-    'zip' => [
-        'string' => 'El código postal debe ser válido.',
-    ],
-    'phone' =>
-    [
-        'regex' => 'El número de teléfono debe ser válido.',
-        'min' => 'El número de teléfono debe tener al menos 8 dígitos.',
-    ],
-],
 
     /*
     |--------------------------------------------------------------------------
