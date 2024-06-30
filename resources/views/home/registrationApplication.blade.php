@@ -124,7 +124,7 @@
             text-align: center;
         }
         .invalid-feedback {
-            color: red;
+            color: #ff8a80;
         }
     </style>
 </head>
@@ -151,7 +151,7 @@
             <div class="form-row">
                 <div>
                     <label for="first_name">Nombre</label>
-                    <input type="text" id="first_name" name="first_name" required>
+                    <input type="text" id="first_name" name="first_name" novalidate>
                     @error('first_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -160,7 +160,7 @@
                 </div>
                 <div>
                     <label for="last_name">Apellido</label>
-                    <input type="text" id="last_name" name="last_name" required>
+                    <input type="text" id="last_name" name="last_name" novalidate>
                     @error('last_name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -170,7 +170,7 @@
             </div>
             <div>
                 <label for="email">Correo electrónico</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" novalidate>
                 @error('email')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -178,8 +178,8 @@
                 @enderror
             </div>
             <div>
-                <label for="phone">Teléfono (opcional)</label>
-                <input type="text" id="phone" name="phone">
+                <label for="phone">Teléfono</label>
+                <input type="text" id="phone" name="phone" novalidate>
                 @error('phone')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
