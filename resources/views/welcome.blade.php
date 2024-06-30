@@ -27,9 +27,9 @@
         <nav class="navbar">
             <a href="{{ url('/') }}" class ="btn">Inicio</a>
             <a href="{{ route('aboutUs') }}" class ="btn">Quienes somos</a>
-            <a href="{{ route('generalParentCenter') }}" class ="btn">Centro general de padres</a>
+            <!-- <a href="{{ route('generalParentCenter') }}" class ="btn">Centro general de padres</a> -->
             <a href="{{ route('gallery') }}" class ="btn">Galería</a>
-            <a href="{{ route('specialist') }}" class ="btn">Especialistas</a>
+            <!-- <a href="{{ route('specialist') }}" class ="btn">Especialistas</a> -->
             <a href="{{ route('registrationApplication') }}"class="btn">Solicitud de matrícula</a>
             @auth
                 <a href="{{ route('login') }}" class="btn-login">{{ Auth::user()->first_name }}  {{ Auth::user()->last_name }}</a>
