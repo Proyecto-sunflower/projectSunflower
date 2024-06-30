@@ -38,23 +38,23 @@
                                 </div> --}}
                                 <div class="col-3">
                                     <label for="inputBirthday" class="form-label">Fecha de Nacimiento<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="date" class="form-control" id="inputBirthday" name="birthday" placeholder="Fecha de Nacimiento" required value="{{$student->birthday}}">
+                                    <input type="date" class="form-control" id="inputBirthday" name="birthday" placeholder="Fecha de nacimiento" required value="{{$student->birthday}}">
                                 </div>
                                 <div class="col-3">
                                     <label for="inputAddress" class="form-label">Dirección #1<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputAddress" name="address" placeholder="634 Main St" required value="{{$student->address}}">
+                                    <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Ej: #Avenida Génerica #123" required value="{{$student->address}}">
                                 </div>
                                 <div class="col-3">
                                     <label for="inputAddress2" class="form-label">Dirección #2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment, studio, or floor" value="{{$student->address2}}">
+                                    <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="#Ej: Avenida Génerica #123" value="{{$student->address2}}">
                                 </div>
                                 <div class="col-2">
                                     <label for="inputCity" class="form-label">Ciudad<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputCity" name="city" placeholder="Dhaka..." required value="{{$student->city}}">
+                                    <input type="text" class="form-control" id="inputCity" name="city" placeholder="Ej: Antofagasta, Calama..." required value="{{$student->city}}">
                                 </div>
                                 <div class="col-2">
                                     <label for="inputZip" class="form-label">Código postal</label>
-                                    <input type="text" class="form-control" id="inputZip" name="zip" value="{{$student->zip}}">
+                                    <input type="text" class="form-control" id="inputZip" name="zip" placeholder="Ej: 827572" value="{{$student->zip}}">
                                 </div>
                                 <div class="col-2">
                                     <label for="inputState" class="form-label">Género<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
@@ -107,24 +107,28 @@
                                 <h6>Información de los apoderados</h6>
                                 <div class="col-3">
                                     <label for="inputFatherName" class="form-label">Apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputFatherName" name="father_name" placeholder="Father Name" required value="{{$parent_info->father_name}}">
+                                    <input type="text" class="form-control" id="inputFatherName" name="main_parent_name" placeholder="Father Name" required value="{{$parent_info->main_parent_name}}">
                                 </div>
                                 <div class="col-3">
                                     <label for="inputFatherPhone" class="form-label">Télefono apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputFatherPhone" name="father_phone" placeholder="Ej: +56912345678" required value="{{$parent_info->father_phone}}">
+                                    <input type="text" class="form-control" id="inputFatherPhone" name="main_parent_phone" placeholder="Ej: +56912345678" required value="{{$parent_info->main_parent_phone}}">
                                 </div>
                                 <div class="col-3">
                                     <label for="inputMotherName" class="form-label">Apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputMotherName" name="mother_name" placeholder="Mother Name" required value="{{$parent_info->mother_name}}">
+                                    <input type="text" class="form-control" id="inputMotherName" name="substitute_name" placeholder="Mother Name" required value="{{$parent_info->substitute_name}}">
                                 </div>
                                 <div class="col-3">
                                     <label for="inputMotherPhone" class="form-label">Télefono apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputMotherPhone" name="mother_phone" placeholder="" required value="{{$parent_info->mother_phone}}">
+                                    <input type="text" class="form-control" id="inputMotherPhone" name="substitute_phone" placeholder="" required value="{{$parent_info->substitute_phone}}">
                                 </div>
-                                {{-- <div class="col-4">
-                                    <label for="inputParentAddress" class="form-label">Direccion<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputParentAddress" name="parent_address" placeholder="634 Main St" required value="{{$parent_info->parent_address}}">
-                                </div> --}}
+                                <div class="col-4 mt-4">
+                                    <label for="inputMainParentAddress" class="form-label">Dirección apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputMainParentAddress" name="main_parent_address" placeholder="Ej: Avenida Génerica #123" required value="{{$parent_info->main_parent_address}}">
+                                </div>
+                                <div class="col-4 mt-4">
+                                    <label for="inputSubstituteParentAddress" class="form-label">Dirección apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                    <input type="text" class="form-control" id="inputSubstituteParentAddress" name="substitute_address" placeholder="Ej: Avenida Génerica #123" required value="{{$parent_info->substitute_address}}">
+                                </div>
                             </div>
                             <div class="row mt-4">
                                 <div class="col-12">

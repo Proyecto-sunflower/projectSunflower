@@ -49,7 +49,7 @@
                                                                     <div class="accordion-item">
                                                                         <h2 class="accordion-header" id="headingClass{{$school_class->id}}Section{{$school_section->id}}">
                                                                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordionClass{{$school_class->id}}Section{{$school_section->id}}" aria-expanded="false" aria-controls="accordionClass{{$school_class->id}}Section{{$school_section->id}}">
-                                                                            {{$school_section->section_name}}
+                                                                            {{$school_section->section_name}}° Básico
                                                                         </button>
                                                                         </h2>
                                                                         <div id="accordionClass{{$school_class->id}}Section{{$school_section->id}}" class="accordion-collapse collapse" aria-labelledby="headingClass{{$school_class->id}}Section{{$school_section->id}}" data-bs-parent="#accordionClass{{$school_class->id}}">

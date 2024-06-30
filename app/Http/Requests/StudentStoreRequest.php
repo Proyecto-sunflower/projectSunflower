@@ -41,18 +41,19 @@ class StudentStoreRequest extends FormRequest
             // 'password'          => 'required|string|min:8',
 
             // Parents' information
-            'father_name'       => 'required|string',
-            'father_phone'      => 'required|string',
-            'mother_name'       => 'required|string',
-            'mother_phone'      => 'required|string',
-            'parent_address'    => 'required|string',
+            'main_parent_name'       => 'required|string',
+            'main_parent_phone'      => 'required|string',
+            'substitute_name'       => 'required|string',
+            'substitute_phone'      => 'required|string',
+            'main_parent_address'    => 'required|string',
+            'substitute_address'    => 'nullable|string',
 
             // Academic information
             'class_id'          => 'nullable|string',
             'section_id'        => 'nullable|string',
             //'board_reg_no'      => 'nullable|string',
             'session_id'        => 'nullable|string',
-            'id_card_number'    => 'required|string|regex:/^\d{2,3}\.\d{3}\.\d{3}-[\dK]$/', // to R.U.T
+            'id_card_number'    => 'required|string|regex:/^\d{2,3}\.\d{3}\.\d{3}-[\dK]$/', // refers to R.U.T
         ];
     }
 }

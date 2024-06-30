@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Database\QueryException;
 use App\Models\SchoolClass;
 use Illuminate\Http\Request;
 use App\Interfaces\SchoolClassInterface;
 use App\Interfaces\SchoolSessionInterface;
 use App\Http\Requests\SchoolClassStoreRequest;
+use App\Http\Requests\SectionStoreRequest;
+use App\Models\Section;
 use App\Traits\SchoolSession;
 
 class SchoolClassController extends Controller
@@ -135,5 +138,20 @@ class SchoolClassController extends Controller
     public function destroy(SchoolClass $schoolClass)
     {
         //
+    }
+
+    public function createSection(SectionStoreRequest $request)
+    {
+        try {
+            $section = new Section();
+            $section->session_id = $request->session_id;
+            $section->section_name = $request->section_name;
+            $section->class_id = $request->class_id;
+            $section->save();
+
+            return redirect()->back()->with('success', 'Nivel creado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        }
     }
 }

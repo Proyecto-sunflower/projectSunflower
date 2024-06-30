@@ -45,7 +45,7 @@ class UserController extends Controller
         try {
             $this->userRepository->createTeacher($request->validated());
 
-            return back()->with('status', 'Teacher creation was successful!');
+            return back()->with('status', '¡Se ha agreagado el profesor correctamente!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
