@@ -27,7 +27,8 @@ class SectionStoreRequest extends FormRequest
             'section_name' => [
                 'required',
                 Rule::unique('sections')->where(function ($query) {
-                    return $query->where('session_id', $this->session_id);
+                    return $query->where('class_id', $this->class_id)
+                                 ->where('session_id', $this->session_id);
                 }),
             ],
             'class_id' => 'required|integer|gt:0',

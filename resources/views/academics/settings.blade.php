@@ -180,12 +180,10 @@
                                         </div> --}}
                                                 <div>
                                                     <p>Asignar nivel al curso</p>
-                                                    <select class="form-select form-select-sm" aria-label=".form-select-sm"
-                                                        name="class_id" required>
+                                                    <select class="form-select form-select-sm" aria-label=".form-select-sm" name="class_id" required>
                                                         @isset($school_classes)
                                                             @foreach ($school_classes as $school_class)
-                                                                <option value="{{ $school_class->id }}">
-                                                                    {{ $school_class->class_name }}</option>
+                                                                <option value="{{ $school_class->id }}">{{ $school_class->class_name }}</option>
                                                             @endforeach
                                                         @endisset
                                                     </select>

@@ -26,11 +26,11 @@
                             <input type="hidden" name="teacher_id" value="{{$teacher->id}}">
                             <div class="col-3">
                                 <label for="inputFirstName" class="form-label">Nombre<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputFirstName" name="Nombre"  value="{{$teacher->first_name}}">
+                                <input type="text" class="form-control" id="inputFirstName" name="first_name"  value="{{$teacher->first_name}}">
                             </div>
                             <div class="col-3">
                                 <label for="inputLastName" class="form-label">Apellido<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputLastName" name="Apellido" placeholder="Last Name" required value="{{$teacher->last_name}}">
+                                <input type="text" class="form-control" id="inputLastName" name="last_name" placeholder="Last Name" required value="{{$teacher->last_name}}">
                             </div>
                             <div class="col-3">
                                 <label for="inputEmail" class="form-label">Email<sup><i class="bi bi-asterisk text-primary"></i></sup></label>

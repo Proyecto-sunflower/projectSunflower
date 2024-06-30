@@ -51,12 +51,12 @@
                                     <label for="inputPassword4" class="form-label">Password<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="password" class="form-control" id="inputPassword4" name="password" required>
                                 </div> --}}
-                                    <div class="col-md-3">
+                                    {{-- <div class="col-md-3">
                                         <label for="formFile" class="form-label">Foto</label>
                                         <input class="form-control" type="file" id="formFile" onchange="previewFile()">
                                         <div id="previewPhoto"></div>
                                         <input type="hidden" id="photoHiddenInput" name="photo" value="">
-                                    </div>
+                                    </div> --}}
                                     <div class="col-md-3">
                                         <label for="inputBirthday" class="form-label">Fecha de nacimiento<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>

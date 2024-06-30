@@ -13,7 +13,7 @@ class SchoolSessionController extends Controller
 
     /**
     * Create a new Controller instance
-    * 
+    *
     * @param SchoolSessionInterface $schoolSessionRepository
     * @return void
     */
@@ -32,11 +32,11 @@ class SchoolSessionController extends Controller
         try {
             $this->schoolSessionRepository->create($request->validated());
 
-            return back()->with('status', 'Session creation was successful!');
+            return back()->with('status', '¡El año escolar se ha creado con éxito!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
-        
+
     }
 
     /**
@@ -55,6 +55,6 @@ class SchoolSessionController extends Controller
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
-        
+
     }
 }

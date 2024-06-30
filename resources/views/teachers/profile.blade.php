@@ -1,32 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
-<style>
-/* .table th:first-child,
-.table td:first-child {
-  position: relative;
-  background-color: #f8f9fa;
-} */
-</style>
-<div class="container">
-    <div class="row justify-content-start">
-        @include('layouts.left-menu')
-        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 col-xxl-10">
-            <div class="row pt-2">
-                <div class="col ps-4">
-                    <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Perfil de {{$teacher->first_name}} {{$teacher->last_name}}
-                    </h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                          <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                          <li class="breadcrumb-item"><a href="{{route('teacher.list.show')}}">Lista de Profesores</a></li>
-                          <li class="breadcrumb-item active" aria-current="page">Perfil</li>
-                        </ol>
-                    </nav>
-                    <div class="mb-4">
-                        <div class="row">
-                            {{-- <div class="col-sm-4 col-md-3">
+    <style>
+        /* .table th:first-child,
+    .table td:first-child {
+      position: relative;
+      background-color: #f8f9fa;
+    } */
+    </style>
+    <div class="container">
+        <div class="row justify-content-start">
+            @include('layouts.left-menu')
+            <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 col-xxl-10">
+                <div class="row pt-2">
+                    <div class="col ps-4">
+                        <h1 class="display-6 mb-3">
+                            <i class="bi bi-person-lines-fill"></i> Perfil de {{ $teacher->first_name }}
+                            {{ $teacher->last_name }}
+                        </h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
+                                <li class="breadcrumb-item"><a href="{{ route('teacher.list.show') }}">Lista de
+                                        profesores</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Perfil</li>
+                            </ol>
+                        </nav>
+                        <div class="mb-4">
+                            <div class="row">
+                                {{-- <div class="col-sm-4 col-md-3">
                                 <div class="card bg-light">
                                     <div class="px-5 pt-2">
                                         @if (isset($teacher->photo))
@@ -44,55 +46,72 @@
                                     </ul>
                                 </div>
                             </div> --}}
-                            <div class="col-sm-8 col-md-13">
-                                <div class="p-3 mb-3 border rounded bg-white">
-                                    <h6>Informacion del Profesor</h6>
-                                    <table class="table table-responsive mt-3">
-                                        <tbody>
-                                            <tr>
-                                                <th scope="row">Nombre:</th>
-                                                <td>{{$teacher->first_name}}</td>
-                                                <th>Apellido:</th>
-                                                <td>{{$teacher->last_name}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Email:</th>
-                                                <td>{{$teacher->email}}</td>
-                                                <th scope="row">Nacionalidad:</th>
-                                                <td>{{$teacher->nationality}}</td>
-                                            </tr>
-                                            <tr>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Dirección #1:</th>
-                                                <td>{{$teacher->address}}</td>
-                                                <th>Dirección #2:</th>
-                                                <td>{{$teacher->address2}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Ciudad:</th>
-                                                <td>{{$teacher->city}}</td>
-                                                <th>Código postal:</th>
-                                                <td>{{$teacher->zip}}</td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="row">Telefono:</th>
-                                                <td>{{$teacher->phone}}</td>
-                                                <th>Género:</th>
-                                                <td>{{$teacher->gender}}</td>
-                                            </tr>
-                                            <tr>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="col-sm-8 col-md-13">
+                                    <div class="p-3 mb-3 border rounded bg-white">
+                                        <h6>Información del profesor</h6>
+                                        <table class="table table-responsive mt-3">
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">Nombre:</th>
+                                                    <td>{{ $teacher->first_name }}</td>
+                                                    <th>Apellido:</th>
+                                                    <td>{{ $teacher->last_name }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Email:</th>
+                                                    <td>{{ $teacher->email }}</td>
+                                                    <th scope="row">Nacionalidad:</th>
+                                                    <td>{{ $teacher->nationality }}</td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Dirección #1:</th>
+                                                    <td>{{ $teacher->address }}</td>
+                                                    <th>Dirección #2:</th>
+                                                    <td>
+                                                        @if(empty($teacher->address2))
+                                                            No ingresada
+                                                        @else
+                                                            {{ $teacher->address2 }}
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Ciudad:</th>
+                                                    <td>{{ $teacher->city }}</td>
+                                                    <th>Código postal:</th>
+                                                    <td>{{ $teacher->zip }}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row">Télefono:</th>
+                                                    <td>{{ $teacher->phone }}</td>
+                                                    <th>Género:</th>
+                                                    <td>
+                                                        @if ($teacher->gender == 'Male')
+                                                            Masculino
+                                                        @elseif($teacher->gender == 'Female')
+                                                            Femenino
+                                                        @elseif($teacher->gender == 'Female')
+                                                            Otro
+                                                        @else
+                                                            {{ $teacher->gender }}
+                                                            <!-- En caso de que haya otro valor no contemplado -->
+                                                        @endif
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                @include('layouts.footer')
             </div>
-            @include('layouts.footer')
         </div>
     </div>
-</div>
 @endsection
