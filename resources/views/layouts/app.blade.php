@@ -45,11 +45,10 @@
 <body>
     <div id="app">
         <nav class="navbar sticky-top navbar-expand-md navbar-light bg-light border-btm-e6">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    <p>Sunflower School</p>
+            <a class="title-schoolname" href="{{ url('/') }}">Sunflower School</a>
 
-                </a>
+
+            <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -87,7 +86,28 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="badge bg-light text-dark">{{ ucfirst(Auth::user()->role) }}</span>
+                                    <span class="badge bg-light text-dark">
+                                        @php
+                                            $role = Auth::user()->role;
+                                        @endphp
+
+                                        @switch($role)
+                                            @case('admin')
+                                                Administrador
+                                                @break
+
+                                            @case('teacher')
+                                                Profesor
+                                                @break
+
+                                            @case('student')
+                                                Estudiante
+                                                @break
+
+                                            @default
+                                                {{ ucfirst($role) }}
+                                        @endswitch
+                                    </span>
                                     {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}
                                 </a>
 

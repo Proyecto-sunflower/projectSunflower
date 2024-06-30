@@ -41,7 +41,7 @@ return [
     'digits_between' => 'El campo :attribute debe tener entre :min y :max dígitos.',
     'dimensions' => 'El campo :attribute tiene dimensiones de imagen inválidas.',
     'distinct' => 'El campo :attribute tiene un valor duplicado.',
-    'email' => 'El campo :attribute debe ser una dirección de correo electrónico válida.',
+    'email' => 'El dirección de correo electrónico debe ser válido.',
     'ends_with' => 'El campo :attribute debe terminar con uno de los siguientes valores: :values.',
     'exists' => 'El campo :attribute seleccionado es inválido.',
     'file' => 'El campo :attribute debe ser un archivo.',
@@ -136,8 +136,37 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'address2' => [
+            'string' => 'La dirección #2 debe ser válida.',
+        ],
+        'zip' => [
+            'string' => 'El código postal debe ser válido.',
+        ],
+        'phone' =>
+        [
+            'regex' => 'El número de teléfono debe ser válido.',
+            'min' => 'El número de teléfono debe tener al menos 8 dígitos.',
+        ],
+        'session_id' => [
+            'required' => 'El año escolar es obligatorio.',
+            'exists' => 'El año escolar seleccionado es ya existe.',
+        ],
+        'class_name' => [
+            'required' => 'El curso es obligatoria.',
+            'unique' => 'El curso seleccionado ya existe.',
+        ],
+        'section_name' => [
+            'required' => 'El nivel es obligatoria.',
+            'unique' => 'El nivel ya existe en el curso seleccionado.',
+        ],
+        'id_card_number' => [
+            'required' => 'El R.U.T es obligatorio.',
+            'unique' => 'El R.U.T ya existe.',
+            'min' => 'El R.U.T debe tener al menos 10 dígitos.',
+            'max' => 'El R.U.T no debe tener más de 10 dígitos.',
+            'no_spaces' => 'El R.U.T no debe tener espacios.',
+            'no_regex' => 'El R.U.T debe ser válido.',
+            'regex' => 'El R.U.T debe ser válido.',
         ],
     ],
 

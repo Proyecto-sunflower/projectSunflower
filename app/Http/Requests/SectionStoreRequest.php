@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class SectionStoreRequest extends FormRequest
@@ -24,10 +24,15 @@ class SectionStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'section_name'  => 'required',
-            'room_no'       => 'required',
-            'class_id'      => 'required|integer|gt:0',
-            'session_id'    => 'required|integer|gt:0',
+            'section_name' => [
+                'required',
+                Rule::unique('sections')->where(function ($query) {
+                    return $query->where('class_id', $this->class_id)
+                                 ->where('session_id', $this->session_id);
+                }),
+            ],
+            'class_id' => 'required|integer|gt:0',
+            'session_id' => 'required|integer|gt:0',
         ];
     }
 }

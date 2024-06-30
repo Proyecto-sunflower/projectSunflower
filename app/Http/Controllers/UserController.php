@@ -33,7 +33,7 @@ class UserController extends Controller
         $this->schoolClassRepository = $schoolClassRepository;
         $this->schoolSectionRepository = $schoolSectionRepository;
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -45,7 +45,7 @@ class UserController extends Controller
         try {
             $this->userRepository->createTeacher($request->validated());
 
-            return back()->with('status', 'Teacher creation was successful!');
+            return back()->with('status', '¡Se ha agreagado el profesor correctamente!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
@@ -123,7 +123,7 @@ class UserController extends Controller
         try {
             $this->userRepository->createStudent($request->validated());
 
-            return back()->with('status', 'Student creation was successful!');
+            return back()->with('status', '¡Se ha creado el estudiante exitosamente!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
@@ -149,7 +149,7 @@ class UserController extends Controller
         try {
             $this->userRepository->updateStudent($request->toArray());
 
-            return back()->with('status', 'Student update was successful!');
+            return back()->with('status', '¡La actualización del estudiante fue exitosa!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
@@ -168,7 +168,7 @@ class UserController extends Controller
         try {
             $this->userRepository->updateTeacher($request->toArray());
 
-            return back()->with('status', 'Teacher update was successful!');
+            return back()->with('status', '¡La actualización del profesor fue exitosa!');
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>Sunflower School | Editar Profesor</title>
 @section('content')
 <div class="container">
     <div class="row justify-content-start">
@@ -26,22 +26,22 @@
                             <input type="hidden" name="teacher_id" value="{{$teacher->id}}">
                             <div class="col-3">
                                 <label for="inputFirstName" class="form-label">Nombre<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputFirstName" name="Nombre" required value="{{$teacher->first_name}}">
+                                <input type="text" class="form-control" id="inputFirstName" name="first_name"  value="{{$teacher->first_name}}">
                             </div>
                             <div class="col-3">
                                 <label for="inputLastName" class="form-label">Apellido<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputLastName" name="Apellido" placeholder="Last Name" required value="{{$teacher->last_name}}">
+                                <input type="text" class="form-control" id="inputLastName" name="last_name" placeholder="Last Name" required value="{{$teacher->last_name}}">
                             </div>
                             <div class="col-3">
                                 <label for="inputEmail" class="form-label">Email<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="email" class="form-control" id="inputEmail" name="email" required value="{{$teacher->email}}">
+                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{$teacher->email}}">
                             </div>
                             <div class="col-4">
-                                <label for="inputAddress" class="form-label">Direccion<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Calle ecuador 661" required value="{{$teacher->address}}">
+                                <label for="inputAddress" class="form-label">Dirección #1<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Ej: Calle Ecuador #661" required value="{{$teacher->address}}">
                             </div>
                             <div class="col-3">
-                                <label for="inputAddress2" class="form-label">Direccion 2</label>
+                                <label for="inputAddress2" class="form-label">Dirección #2</label>
                                 <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Departamento, oficina o piso" value="{{$teacher->address2}}">
                             </div>
                             <div class="col-2">
@@ -49,26 +49,27 @@
                                 <input type="text" class="form-control" id="inputCity" name="city" placeholder="Talca" required value="{{$teacher->city}}">
                             </div>
                             <div class="col-2">
-                                <label for="inputZip" class="form-label">Codigo Postal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputZip" name="zip" required value="{{$teacher->zip}}">
+                                <label for="inputZip" class="form-label">Código Postal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                <input type="text" class="form-control" id="inputZip" name="zip" value="{{$teacher->zip}}">
                             </div>
                             <div class="col-3">
-                                <label for="inputPhone" class="form-label">Telefono<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="+880 01......" required value="{{$teacher->phone}}">
+                                <label for="inputPhone" class="form-label">Télefono<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="+880 01......"  value="{{$teacher->phone}}">
                             </div>
                             <div class="col-2">
-                                <label for="inputState" class="form-label">Genero<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <select id="inputState" class="form-select" name="gender" required>
+                                <label for="inputState" class="form-label">Género<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                <select id="inputState" class="form-select" name="gender" >
                                     <option value="Male" {{($teacher->gender == 'Male')?'selected':null}}>Hombre</option>
                                     <option value="Female" {{($teacher->gender == 'Female')?'selected':null}}>Mujer</option>
+                                    <option value="Other" {{($teacher->gender == 'Other')?'selected':null}}>Otro</option>
                                 </select>
                             </div>
                             <div class="col-3">
                                 <label for="inputNationality" class="form-label">Nacionalidad<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                <input type="text" class="form-control" id="inputNationality" name="nationality" placeholder="ej: Chile, Alemania, Perú" required value="{{$teacher->nationality}}">
+                                <input type="text" class="form-control" id="inputNationality" name="nationality" placeholder="Ej: Chileno, ..." required value="{{$teacher->nationality}}">
                             </div>
                             <div class="col-12">
-                                <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-person-check"></i> Update</button>
+                                <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-person-check"></i> Actualizar información</button>
                             </div>
                         </form>
                     </div>

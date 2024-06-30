@@ -82,12 +82,6 @@
                                                 <td>{{$student->zip}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Tipo de Sangre:</th>
-                                                <td>{{$student->blood_type}}</td>
-                                                <th>Teléfono:</th>
-                                                <td>{{$student->phone}}</td>
-                                            </tr>
-                                            <tr>
                                                 <th scope="row">Género:</th>
                                                 <td colspan="3">{{$student->gender}}</td>
                                             </tr>
@@ -99,20 +93,20 @@
                                     <table class="table table-responsive mt-3">
                                         <tbody>
                                             <tr>
-                                                <th scope="row">Nombre del Padre:</th>
-                                                <td>{{$student->parent_info->father_name}}</td>
-                                                <th>Nombre de la Madre:</th>
-                                                <td>{{$student->parent_info->mother_name}}</td>
+                                                <th scope="row">Nombre apoderado principal:</th>
+                                                <td>{{$student->parent_info->main_parent_name}}</td>
+                                                <th>Nombre apoderado suplente:</th>
+                                                <td>{{$student->parent_info->substitute_name}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Teléfono del Padre:</th>
-                                                <td>{{$student->parent_info->father_phone}}</td>
-                                                <th>Teléfono de la Madre:</th>
-                                                <td>{{$student->parent_info->mother_phone}}</td>
+                                                <th scope="row">Teléfono apoderado principal:</th>
+                                                <td>{{$student->parent_info->main_parent_phone}}</td>
+                                                <th>Teléfono apoderado suplente:</th>
+                                                <td>{{$student->parent_info->substitute_phone}}</td>
                                             </tr>
                                             <tr>
-                                                <th scope="row">Direccion:</th>
-                                                <td colspan="3">{{$student->parent_info->parent_address}}</td>
+                                                <th scope="row">Dirección apoderado principal:</th>
+                                                <td colspan="3">{{$student->parent_info->main_parent_address}}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -125,7 +119,7 @@
                                                 <th scope="row">Class:</th>
                                                 <td>{{$promotion_info->section->schoolClass->class_name}}</td>
                                                 <th>Board Reg. No.:</th>
-                                                <td>{{$student->academic_info->board_reg_no}}</td>
+                                                {{-- <td>{{$student->academic_info->board_reg_no}}</td> --}}
                                             </tr>
                                             <tr>
                                                 <th scope="row">Section:</th>

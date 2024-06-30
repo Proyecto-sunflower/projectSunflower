@@ -42,4 +42,30 @@ class EnrollmentApplicationController extends Controller
 
     }
 
+    public function index()
+    {
+        try {
+            $applications = $this->EnrollmentApplicationRepository->get();
+            return view('enrollment_applications.index', compact('applications'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al obtener las solicitudes.'.$e->getMessage());
+        }
+    }
+
+    /**
+     * Change the status of the specified resource to reviewed.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function changeToReviewed($id)
+    {
+        try {
+            $this->EnrollmentApplicationRepository->changeToReviewed($id);
+            return redirect()->route('enrollmentApplications.index')->with('success', 'Estado de la solicitud cambiado con éxito.');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'Error al cambiar el estado de la solicitud.'.$e->getMessage());
+        }
+    }
+
 }
