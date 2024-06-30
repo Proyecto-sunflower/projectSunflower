@@ -41,22 +41,6 @@
                                         <input type="text" class="form-control" id="inputLastName" name="last_name"
                                             placeholder="Ingresar apellidos aquí" required value="{{ old('last_name') }}">
                                     </div>
-                                    {{-- <div class="col-md-6">
-                                        <label for="inputEmail4" class="form-label">Email<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="email" class="form-control" id="inputEmail4" name="email" required
-                                            value="{{ old('email') }}">
-                                    </div> --}}
-                                    {{-- <div class="col-md-6">
-                                    <label for="inputPassword4" class="form-label">Password<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="password" class="form-control" id="inputPassword4" name="password" required>
-                                </div> --}}
-                                    {{-- <div class="col-md-3">
-                                        <label for="formFile" class="form-label">Foto</label>
-                                        <input class="form-control" type="file" id="formFile" onchange="previewFile()">
-                                        <div id="previewPhoto"></div>
-                                        <input type="hidden" id="photoHiddenInput" name="photo" value="">
-                                    </div> --}}
                                     <div class="col-md-3">
                                         <label for="inputBirthday" class="form-label">Fecha de nacimiento<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
@@ -75,7 +59,8 @@
                                             placeholder="Ej: Avenida Génerica #123" value="{{ old('address2') }}">
                                     </div>
                                     <div class="col-3-md">
-                                        <input type="checkbox" id="sameAddress" name="sameAddress" onchange="toggleSecondaryAddress()">
+                                        <input type="checkbox" id="sameAddress" name="sameAddress"
+                                            onchange="toggleSecondaryAddress()">
                                         <label for="sameAddress"> ¿Misma dirección?</label><br>
                                     </div>
 
@@ -94,13 +79,13 @@
                                         <label for="inputState" class="form-label">Género<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <select id="inputState" class="form-select" name="gender" required>
-                                            <option value="Male" {{ old('gender') == 'male' ? 'selected' : '' }}>
+                                            <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>
                                                 Masculino
                                             </option>
-                                            <option value="Female" {{ old('gender') == 'female' ? 'selected' : '' }}>
+                                            <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>
                                                 Femenino
                                             </option>
-                                            <option value="Female" {{ old('other') == 'other' ? 'selected' : '' }}>
+                                            <option value="Other" {{ old('gender') == 'Other' ? 'selected' : '' }}>
                                                 Otro
                                             </option>
                                         </select>
@@ -112,46 +97,11 @@
                                             name="nationality" placeholder="Ej: Chileno, ..." required
                                             value="{{ old('nationality') }}">
                                     </div>
-                                    {{-- <div class="col-md-4">
-                                        <label for="inputBloodType" class="form-label">BloodType<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <select id="inputBloodType" class="form-select" name="blood_type" required>
-                                            <option {{ old('blood_type') == 'A+' ? 'selected' : '' }}>A+</option>
-                                            <option {{ old('blood_type') == 'A-' ? 'selected' : '' }}>A-</option>
-                                            <option {{ old('blood_type') == 'B+' ? 'selected' : '' }}>B+</option>
-                                            <option {{ old('blood_type') == 'B-' ? 'selected' : '' }}>B-</option>
-                                            <option {{ old('blood_type') == 'O+' ? 'selected' : '' }}>O+</option>
-                                            <option {{ old('blood_type') == 'O-' ? 'selected' : '' }}>O-</option>
-                                            <option {{ old('blood_type') == 'AB+' ? 'selected' : '' }}>AB+</option>
-                                            <option {{ old('blood_type') == 'AB-' ? 'selected' : '' }}>AB-</option>
-                                            <option {{ old('blood_type') == 'other' ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div> --}}
-                                    {{-- <div class="col-md-4">
-                                        <label for="inputReligion" class="form-label">Religion<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <select id="inputReligion" class="form-select" name="religion" required>
-                                            <option {{ old('religion') == 'Islam' ? 'selected' : '' }}>Islam</option>
-                                            <option {{ old('religion') == 'Hinduism' ? 'selected' : '' }}>Hinduism</option>
-                                            <option {{ old('religion') == 'Christianity' ? 'selected' : '' }}>Christianity
-                                            </option>
-                                            <option {{ old('religion') == 'Buddhism' ? 'selected' : '' }}>Buddhism</option>
-                                            <option {{ old('religion') == 'Judaism' ? 'selected' : '' }}>Judaism</option>
-                                            <option {{ old('religion') == 'Others' ? 'selected' : '' }}>Other</option>
-                                        </select>
-                                    </div> --}}
-                                    {{-- <div class="col-md-4">
-                                        <label for="inputPhone" class="form-label">Télefono<sup><i
-                                                    class="bi bi-asterisk text-primary "></i></sup></label>
-                                        <input type="text" class="form-control" id="inputPhone" name="phone"
-                                            placeholder="+880 01......" required value="{{ old('phone') }}">
-                                    </div> --}}
                                     <div class="col-5-md">
                                         <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputIdCardNumber"
-                                            name="id_card_number"
-                                            placeholder="Ej: 11.111.111-1" required
+                                            name="id_card_number" placeholder="Ej: 11.111.111-1" required
                                             value="{{ old('id_card_number') }}">
                                     </div>
                                 </div>
@@ -165,7 +115,7 @@
                                             value="{{ old('main_parent_name') }}">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="inputFatherPhone" class="form-label">Teléfono  apoderado
+                                        <label for="inputFatherPhone" class="form-label">Teléfono apoderado
                                             principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputFatherPhone"
                                             name="main_parent_phone" placeholder="Ej: +56912345678" required
@@ -183,33 +133,29 @@
                                             suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputMotherPhone"
                                             name="substitute_phone" placeholder="Ej: +56912345678" required
-                                            value="{{ old('substitute_name') }}">
+                                            value="{{ old('substitute_phone') }}">
                                     </div>
                                     <div class="col-4-md">
-                                        <label for="inputParentAddress" class="form-label">Dirección apoderado principal<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <label for="inputParentAddress" class="form-label">Dirección apoderado
+                                            principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputParentAddress"
                                             name="main_parent_address" placeholder="Ej: Avenida Génerica #123" required
                                             value="{{ old('main_parent_address') }}">
                                     </div>
-
                                     <div class="col-4-md">
-                                        <label for="inputParentAddress" class="form-label">Dirección apoderado suplente<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="text" class="form-control" id="inputParentAddress"
+                                        <label for="inputParentAddress2" class="form-label">Dirección apoderado
+                                            suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputParentAddress2"
                                             name="substitute_address" placeholder="Ej: Avenida Génerica #123" required
-                                            value="{{ old('substitute_address') }}"
-                                        >
+                                            value="{{ old('substitute_address') }}">
                                     </div>
                                     <div class="col-3-md">
-                                        <input type="checkbox" id="sameAddressParents" name="sameAddressParents" onchange="toggleSecondaryAddress()">
-                                        <label for="sameAddressParents"> ¿Misma dirección?</label><br>
+                                        <input type="checkbox" id="sameAddressParents" name="sameAddressParents" onchange="toggleParentAddress()">
+                                        <label for="sameAddressParents"> ¿Misma dirección para el apoderado?</label><br>
                                     </div>
-
                                 </div>
                                 <div class="row mt-4 g-3">
                                     <h6>Información académica</h6>
-
                                     <div class="col-md-6">
                                         <label for="inputAssignToClass" class="form-label">Asignar al curso:<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
@@ -230,13 +176,6 @@
                                         <select class="form-select" id="inputAssignToSection" name="section_id">
                                         </select>
                                     </div>
-                                    {{-- <div class="col-md-12">
-                                        <label for="inputBoardRegistrationNumber" class="form-label">Board registration
-                                            No.</label>
-                                        <input type="text" class="form-control" id="inputBoardRegistrationNumber"
-                                            name="board_reg_no" placeholder="Registration No."
-                                            value="{{ old('board_reg_no') }}">
-                                    </div> --}}
                                     <input type="hidden" name="session_id" value="{{ $current_school_session_id }}">
                                 </div>
                                 <div class="row mt-4">
@@ -276,6 +215,7 @@
                     console.log(error);
                 });
         }
+
         function toggleSecondaryAddress() {
             const secondaryAddress = document.getElementById('inputAddress2');
             if (document.getElementById('sameAddress').checked) {
@@ -289,10 +229,17 @@
             }
         }
 
-        function syncSecondaryAddress() {
-            const secondaryAddress = document.getElementById('inputAddress2');
-            if (document.getElementById('sameAddress').checked) {
-                secondaryAddress.value = document.getElementById('inputAddress').value;
+        function toggleParentAddress() {
+            const mainParentAddress = document.getElementById('inputParentAddress');
+            const substituteParentAddress = document.getElementById('inputParentAddress2');
+            if (document.getElementById('sameAddressParents').checked) {
+                substituteParentAddress.disabled = true;
+                substituteParentAddress.value = mainParentAddress.value;
+                substituteParentAddress.style.cursor = "not-allowed";
+            } else {
+                substituteParentAddress.disabled = false;
+                substituteParentAddress.value = "";
+                substituteParentAddress.style.cursor = "auto";
             }
         }
     </script>
