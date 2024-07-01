@@ -50,9 +50,9 @@ Route::get('/gallery', function () {
     return view('home.gallery');
 })->name('gallery');
 
-// Route::get('/general-parent-center', function () {
-//     return view('home.generalParentCenter');
-// })->name('generalParentCenter');
+Route::get('/general-parent-center', function () {
+    return view('home.generalParentCenter');
+})->name('generalParentCenter');
 
 Route::get('/registration-application', function () {
     return view('home.registrationApplication');
@@ -60,9 +60,13 @@ Route::get('/registration-application', function () {
 
 Route::post('/registration-application', [EnrollmentApplicationController::class, 'store'])->name('registrationApplication.store');
 
-// Route::get('/specialists', function () {
-//     return view('home.specialist');
-// })->name('specialist');
+Route::get('/specialists', function () {
+    return view('home.specialist');
+})->name('specialist');
+
+Route::get('/specialists', function () {
+    return view('home.specialist');
+})->name('specialist');
 
 
 Auth::routes();
@@ -204,5 +208,5 @@ Route::middleware(['auth'])->group(function () {
 
     // Update password
     Route::get('password/edit', [UpdatePasswordController::class, 'edit'])->name('password.edit');
-    //Route::post('password/edit', [UpdatePasswordController::class, 'update'])->name('password.update');
+    Route::post('password/edit', [UpdatePasswordController::class, 'update'])->name('password.update');
 });
