@@ -17,7 +17,7 @@
                         </ol>
                     </nav>
                     <div class="col-md-6" style="margin: 40px;">
-                        <label for="selectCourse" class="form-label">Nombre del alumno: {{$student->first_name}} {{$student->last_name}}</label><br>
+                        <label for="selectCourse" class="form-label">Nombre del alumno: {{ $student->first_name }} {{ $student->last_name }}</label><br>
                         @if ($current_semester)
                         <label for="selectCourse" class="form-label">Semestre: {{$current_semester->semester_name}}</label><br>
                         @else
