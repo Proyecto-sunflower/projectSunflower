@@ -111,6 +111,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/manageStudentGrades/{id}', [ManageGradesController::class, 'edit'])->name('manage.manage-student-grades');
     Route::post('/grades/update', [GradeController::class, 'update'])->name('grades.update');
 
+
     // Attendance
     Route::get('/attendances', [AttendanceController::class, 'index'])->name('attendance.index');
     Route::get('/attendances/view', [AttendanceController::class, 'show'])->name('attendance.list.show');
@@ -208,5 +209,5 @@ Route::middleware(['auth'])->group(function () {
 
     // Update password
     Route::get('password/edit', [UpdatePasswordController::class, 'edit'])->name('password.edit');
-    Route::post('password/edit', [UpdatePasswordController::class, 'update'])->name('password.update');
+    // Route::post('password/edit', [UpdatePasswordController::class, 'update'])->name('password.update');
 });

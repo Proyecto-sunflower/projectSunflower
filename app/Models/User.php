@@ -87,4 +87,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Grade::class);
     }
+
+    public function subjects()
+    {
+        return $this->hasManyThrough(Subject::class, Grade::class, 'user_id', 'id', 'id', 'subject_id');
+    }
 }

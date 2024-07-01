@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -10,6 +11,7 @@ use App\Interfaces\CourseInterface;
 use App\Interfaces\SemesterInterface;
 use Carbon\Carbon;
 use App\Models\Subject;
+use App\Models\Grade;
 
 class ManageGradesController extends Controller
 {
@@ -85,6 +87,7 @@ class ManageGradesController extends Controller
         }
 
         $subjects = Subject::all();
+        $grades = Grade::where('user_id', $student_id)->get()->groupBy('subject_id');
 
         $data = [
             'student' => $student,
@@ -94,10 +97,33 @@ class ManageGradesController extends Controller
             'semesters' => $semesters,
             'today' => $today,
             'current_semester' => $current_semester,
-            'subjects' => $subjects
+            'subjects' => $subjects,
+            'grades' => $grades
         ];
 
         return view('manage.manage-student-grades', $data);
     }
 
+    public function update(Request $request)
+    {
+        $data = $request->validate([
+            'student_id' => 'required|exists:users,id',
+            'grades' => 'required|array',
+            'grades.*' => 'array',
+            'grades.*.*' => 'nullable|numeric|min:1|max:7',
+        ]);
+
+        foreach ($data['grades'] as $subject_id => $grades) {
+            foreach ($grades as $index => $gradeValue) {
+                if ($gradeValue !== null) {
+                    Grade::updateOrCreate(
+                        ['user_id' => $request->student_id, 'subject_id' => $subject_id, 'grade_index' => $index],
+                        ['grade' => $gradeValue]
+                    );
+                }
+            }
+        }
+
+        return redirect()->back()->with('success', 'Notas actualizadas correctamente.');
+    }
 }
