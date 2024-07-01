@@ -1,75 +1,95 @@
 @extends('layouts.app')
 <title>Sunflower School | Editar Estudiante</title>
 @section('content')
-<div class="container">
-    <div class="row justify-content-start">
-        @include('layouts.left-menu')
-        <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 col-xxl-10">
-            <div class="row pt-2">
-                <div class="col ps-4">
-                    <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Editar estudiante
-                    </h1>
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Lista de Estudiantes</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Editar Estudiante</li>
-                        </ol>
-                    </nav>
+    <div class="container">
+        <div class="row justify-content-start">
+            @include('layouts.left-menu')
+            <div class="col-xs-11 col-sm-11 col-md-11 col-lg-10 col-xl-10 col-xxl-10">
+                <div class="row pt-2">
+                    <div class="col ps-4">
+                        <h1 class="display-6 mb-3">
+                            <i class="bi bi-person-lines-fill"></i> Editar estudiante
+                        </h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
+                                <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Lista de Estudiantes</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Editar Estudiante</li>
+                            </ol>
+                        </nav>
 
-                    @include('session-messages')
-                    <div class="mb-4">
-                        <form class="row g-3" action="{{route('school.student.update')}}" method="POST">
-                            @csrf
-                            <input type="hidden" name="student_id" value="{{$student->id}}">
-                            <div class="row g-3">
-                                <div class="col-3">
-                                    <label for="inputFirstName" class="form-label">Nombre<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputFirstName" name="first_name" placeholder="Nombre " required value="{{$student->first_name}}">
-                                </div>
-                                <div class="col-3">
-                                    <label for="inputLastName" class="form-label">Apellido<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputLastName" name="last_name" placeholder="Apellido" required value="{{$student->last_name}}">
-                                </div>
-                                {{-- <div class="col-3">
+                        @include('session-messages')
+                        <div class="mb-4">
+                            <form class="row g-3" action="{{ route('school.student.update') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="student_id" value="{{ $student->id }}">
+                                <div class="row g-3">
+                                    <div class="col-3">
+                                        <label for="inputFirstName" class="form-label">Nombre<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputFirstName" name="first_name"
+                                            placeholder="Nombre " required value="{{ $student->first_name }}">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="inputLastName" class="form-label">Apellido<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputLastName" name="last_name"
+                                            placeholder="Apellido" required value="{{ $student->last_name }}">
+                                    </div>
+                                    {{-- <div class="col-3">
                                     <label for="inputEmail4" class="form-label">Email<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="email" class="form-control" id="inputEmail4" name="email" required value="{{$student->email}}">
                                 </div> --}}
-                                <div class="col-3">
-                                    <label for="inputBirthday" class="form-label">Fecha de Nacimiento<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="date" class="form-control" id="inputBirthday" name="birthday" placeholder="Fecha de nacimiento" required value="{{$student->birthday}}">
-                                </div>
-                                <div class="col-3">
-                                    <label for="inputAddress" class="form-label">Dirección #1<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Ej: #Avenida Génerica #123" required value="{{$student->address}}">
-                                </div>
-                                <div class="col-3">
-                                    <label for="inputAddress2" class="form-label">Dirección #2</label>
-                                    <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="#Ej: Avenida Génerica #123" value="{{$student->address2}}">
-                                </div>
-                                <div class="col-2">
-                                    <label for="inputCity" class="form-label">Ciudad<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputCity" name="city" placeholder="Ej: Antofagasta, Calama..." required value="{{$student->city}}">
-                                </div>
-                                <div class="col-2">
-                                    <label for="inputZip" class="form-label">Código postal</label>
-                                    <input type="text" class="form-control" id="inputZip" name="zip" placeholder="Ej: 827572" value="{{$student->zip}}">
-                                </div>
-                                <div class="col-2">
-                                    <label for="inputState" class="form-label">Género<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <select id="inputState" class="form-select" name="gender" required>
-                                        <option value="Male" {{($student->gender == 'Male')?'selected':null}}>Masculino</option>
-                                        <option value="Female" {{($student->gender == 'Female')?'selected':null}}>Femenino</option>
-                                        <option value="Female" {{($student->gender == 'Other')?'selected':null}}>Otro</option>
+                                    <div class="col-3">
+                                        <label for="inputBirthday" class="form-label">Fecha de Nacimiento<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="date" class="form-control" id="inputBirthday" name="birthday"
+                                            placeholder="Fecha de nacimiento" required value="{{ $student->birthday }}">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="inputAddress" class="form-label">Dirección #1<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputAddress" name="address"
+                                            placeholder="Ej: #Avenida Génerica #123" required
+                                            value="{{ $student->address }}">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="inputAddress2" class="form-label">Dirección #2</label>
+                                        <input type="text" class="form-control" id="inputAddress2" name="address2"
+                                            placeholder="#Ej: Avenida Génerica #123" value="{{ $student->address2 }}">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="inputCity" class="form-label">Ciudad<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputCity" name="city"
+                                            placeholder="Ej: Antofagasta, Calama..." required value="{{ $student->city }}">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="inputZip" class="form-label">Código postal</label>
+                                        <input type="text" class="form-control" id="inputZip" name="zip"
+                                            placeholder="Ej: 827572" value="{{ $student->zip }}">
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="inputState" class="form-label">Género<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <select id="inputState" class="form-select" name="gender" required>
+                                            <option value="Male" {{ $student->gender == 'Male' ? 'selected' : null }}>
+                                                Masculino</option>
+                                            <option value="Female" {{ $student->gender == 'Female' ? 'selected' : null }}>
+                                                Femenino</option>
+                                            <option value="Female" {{ $student->gender == 'Other' ? 'selected' : null }}>
+                                                Otro</option>
 
-                                    </select>
-                                </div>
-                                <div class="col-2">
-                                    <label for="inputNationality" class="form-label">Nacionalidad<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputNationality" name="nationality" placeholder="ejemplo: Chilena, Argentina, Japonesa..." required value="{{$student->nationality}}">
-                                </div>
-                                {{-- <div class="col-2">
+                                        </select>
+                                    </div>
+                                    <div class="col-2">
+                                        <label for="inputNationality" class="form-label">Nacionalidad<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputNationality"
+                                            name="nationality" placeholder="ejemplo: Chilena, Argentina, Japonesa..."
+                                            required value="{{ $student->nationality }}">
+                                    </div>
+                                    {{-- <div class="col-2">
                                     <label for="inputBloodType" class="form-label">BloodType<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <select id="inputBloodType" class="form-select" name="blood_type" required>
                                         <option value="A+" {{($student->blood_type == 'A+')?'selected':null}}>A+</option>
@@ -83,7 +103,7 @@
                                         <option value="Other" {{($student->blood_type == 'Other')?'selected':null}}>Other</option>
                                     </select>
                                 </div> --}}
-                                {{-- <div class="col-2">
+                                    {{-- <div class="col-2">
                                     <label for="inputReligion" class="form-label">Religion<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <select id="inputReligion" class="form-select" name="religion" required>
                                         <option {{($student->religion == 'Islam')?'selected':null}}>Islamica</option>
@@ -94,54 +114,90 @@
                                         <option {{($student->religion == 'Other')?'selected':null}}>Otro</option>
                                     </select>
                                 </div> --}}
-                                {{-- <div class="col-3">
+                                    {{-- <div class="col-3">
                                     <label for="inputPhone" class="form-label">Telefono<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="+569 98.. ...." required value="{{$student->phone}}">
                                 </div> --}}
-                                <div class="col-3">
-                                    <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputIdCardNumber" name="id_card_number" placeholder="e.g. 2021-03-01-02-01 (Year Semester Class Section Roll)" required value="{{$promotion_info->id_card_number}}">
+                                    <div class="col-3">
+                                        <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputIdCardNumber"
+                                            name="id_card_number"
+                                            placeholder="e.g. 2021-03-01-02-01 (Year Semester Class Section Roll)" required
+                                            value="{{ $promotion_info->id_card_number }}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row mt-4 g-3">
-                                <h6>Información de los apoderados</h6>
-                                <div class="col-3">
-                                    <label for="inputFatherName" class="form-label">Apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputFatherName" name="main_parent_name" placeholder="Father Name" required value="{{$parent_info->main_parent_name}}">
+                                <div class="row mt-4 g-3">
+                                    <h6>Información de los apoderados</h6>
+                                    <div class="col-3">
+                                        <label for="inputFatherName" class="form-label">Apoderado principal<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputFatherName"
+                                            name="main_parent_name" placeholder="Father Name" required
+                                            value="{{ $parent_info->main_parent_name }}">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="inputFatherPhone" class="form-label">Télefono apoderado
+                                            principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputFatherPhone"
+                                            name="main_parent_phone" placeholder="Ej: +56912345678" required
+                                            value="{{ $parent_info->main_parent_phone }}">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="inputMotherName" class="form-label">Apoderado suplente<sup><i
+                                                    class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputMotherName"
+                                            name="substitute_name" placeholder="Mother Name" required
+                                            value="{{ $parent_info->substitute_name }}">
+                                    </div>
+                                    <div class="col-3">
+                                        <label for="inputMotherPhone" class="form-label">Télefono apoderado
+                                            suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputMotherPhone"
+                                            name="substitute_phone" placeholder="" required
+                                            value="{{ $parent_info->substitute_phone }}">
+                                    </div>
+                                    <div class="col-4 mt-4">
+                                        <label for="inputMainParentAddress" class="form-label">Dirección apoderado
+                                            principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputMainParentAddress"
+                                            name="main_parent_address" placeholder="Ej: Avenida Génerica #123" required
+                                            value="{{ $parent_info->main_parent_address }}">
+                                    </div>
+                                    <div class="col-4 mt-4">
+                                        <label for="inputSubstituteParentAddress" class="form-label">Dirección apoderado
+                                            suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
+                                        <input type="text" class="form-control" id="inputSubstituteParentAddress"
+                                            name="substitute_address" placeholder="Ej: Avenida Génerica #123" required
+                                            value="{{ $parent_info->substitute_address }}">
+                                    </div>
                                 </div>
-                                <div class="col-3">
-                                    <label for="inputFatherPhone" class="form-label">Télefono apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputFatherPhone" name="main_parent_phone" placeholder="Ej: +56912345678" required value="{{$parent_info->main_parent_phone}}">
+                                <div class="row mt-4">
+                                    <div class="col-12">
+                                        <button type="submit" class="btn btn-sm btn-outline-primary"><i
+                                                class="bi bi-person-check"></i> Actualizar estudiante</button>
+                                    </div>
                                 </div>
-                                <div class="col-3">
-                                    <label for="inputMotherName" class="form-label">Apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputMotherName" name="substitute_name" placeholder="Mother Name" required value="{{$parent_info->substitute_name}}">
-                                </div>
-                                <div class="col-3">
-                                    <label for="inputMotherPhone" class="form-label">Télefono apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputMotherPhone" name="substitute_phone" placeholder="" required value="{{$parent_info->substitute_phone}}">
-                                </div>
-                                <div class="col-4 mt-4">
-                                    <label for="inputMainParentAddress" class="form-label">Dirección apoderado principal<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputMainParentAddress" name="main_parent_address" placeholder="Ej: Avenida Génerica #123" required value="{{$parent_info->main_parent_address}}">
-                                </div>
-                                <div class="col-4 mt-4">
-                                    <label for="inputSubstituteParentAddress" class="form-label">Dirección apoderado suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
-                                    <input type="text" class="form-control" id="inputSubstituteParentAddress" name="substitute_address" placeholder="Ej: Avenida Génerica #123" required value="{{$parent_info->substitute_address}}">
-                                </div>
-                            </div>
-                            <div class="row mt-4">
-                                <div class="col-12">
-                                    <button type="submit" class="btn btn-sm btn-outline-primary"><i class="bi bi-person-check"></i> Actualizar estudiante</button>
-                                </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                @include('layouts.footer')
             </div>
-            @include('layouts.footer')
         </div>
     </div>
-</div>
-@include('components.photos.photo-input')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if (session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Datos actualizados!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        });
+    </script>
+    @include('components.photos.photo-input')
 @endsection

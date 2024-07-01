@@ -150,7 +150,8 @@
                                             value="{{ old('substitute_address') }}">
                                     </div>
                                     <div class="col-3-md">
-                                        <input type="checkbox" id="sameAddressParents" name="sameAddressParents" onchange="toggleParentAddress()">
+                                        <input type="checkbox" id="sameAddressParents" name="sameAddressParents"
+                                            onchange="toggleParentAddress()">
                                         <label for="sameAddressParents"> ¿Misma dirección para el apoderado?</label><br>
                                     </div>
                                 </div>
@@ -243,5 +244,20 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Estudiante registrado!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        });
+    </script>
+
+
     @include('components.photos.photo-input')
 @endsection

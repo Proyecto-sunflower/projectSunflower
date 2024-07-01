@@ -56,7 +56,9 @@ class UserRepository implements UserInterface {
                     'view events',
                     'view notices',
                 );
+
             });
+            return redirect()->back()->with('success', 'Profesor registrado correctamente.');
         } catch (\Exception $e) {
             throw new \Exception('Error al crear profesor, error encontrado:. '.$e->getMessage());
         }
@@ -113,6 +115,8 @@ class UserRepository implements UserInterface {
                     'view notices',
                 );
             });
+            return redirect()->back()->with('success', 'Estudiante registrado correctamente.');
+
         } catch (\Exception $e) {
             throw new \Exception('Failed to create Student. '.$e->getMessage());
         }
@@ -144,6 +148,7 @@ class UserRepository implements UserInterface {
                 // Update Student's ID card number
                 $promotionRepository = new PromotionRepository();
                 $promotionRepository->update($request, $request['student_id']);
+                return redirect()->back()->with('success', 'Los datos han sido actualizados correctamente.');
             });
         } catch (\Exception $e) {
             throw new \Exception('Failed to update Student. '.$e->getMessage());
@@ -166,6 +171,7 @@ class UserRepository implements UserInterface {
                     'zip'           => !empty($request['zip']) ? $request['zip'] : null,
                 ]);
             });
+            return redirect()->back()->with('success', 'Los datos han sido actualizados correctamente.');
         } catch (\Exception $e) {
             throw new \Exception('Error al actualizar, se ha detectado el siguiente error:  '.$e->getMessage());
         }
