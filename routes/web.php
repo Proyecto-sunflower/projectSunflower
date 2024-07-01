@@ -26,6 +26,7 @@ use App\Http\Controllers\AcademicSettingController;
 use App\Http\Controllers\AssignedTeacherController;
 use App\Http\Controllers\Auth\UpdatePasswordController;
 use App\Http\Controllers\EnrollmentApplicationController;
+use App\Http\Controllers\GradeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,9 +50,9 @@ Route::get('/gallery', function () {
     return view('home.gallery');
 })->name('gallery');
 
-Route::get('/general-parent-center', function () {
-    return view('home.generalParentCenter');
-})->name('generalParentCenter');
+// Route::get('/general-parent-center', function () {
+//     return view('home.generalParentCenter');
+// })->name('generalParentCenter');
 
 Route::get('/registration-application', function () {
     return view('home.registrationApplication');
@@ -59,9 +60,11 @@ Route::get('/registration-application', function () {
 
 Route::post('/registration-application', [EnrollmentApplicationController::class, 'store'])->name('registrationApplication.store');
 
-Route::get('/specialists', function () {
-    return view('home.specialist');
-})->name('specialist');
+// Route::get('/specialists', function () {
+//     return view('home.specialist');
+// })->name('specialist');
+
+
 Auth::routes();
 
 Route::middleware(['auth'])->group(function () {
@@ -102,6 +105,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/manageGrades', [ManageGradesController::class, 'index'])->name('manage.manage-grades');
     Route::get('/manageStudentGrades/{id}', [ManageGradesController::class, 'edit'])->name('manage.manage-student-grades');
+    Route::post('/grades/update', [GradeController::class, 'update'])->name('grades.update');
 
     // Attendance
     Route::get('/attendances', [AttendanceController::class, 'index'])->name('attendance.index');

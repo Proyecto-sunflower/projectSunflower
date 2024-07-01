@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Mark;
+use App\Models\Grade;
 use App\Models\StudentParentInfo;
 use App\Models\StudentAcademicInfo;
 use Spatie\Permission\Traits\HasRoles;
@@ -80,5 +81,10 @@ class User extends Authenticatable
     public function marks()
     {
         return $this->hasMany(Mark::class, 'student_id', 'id');
+    }
+
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
     }
 }

@@ -1,5 +1,3 @@
-<title>Sunflower School | Administrar notas</title>
-
 @extends('layouts.app')
 
 @section('content')
@@ -20,220 +18,46 @@
                     </nav>
                     <div class="col-md-6" style="margin: 40px;">
                         <label for="selectCourse" class="form-label">Nombre del alumno: {{$student->first_name}} {{$student->last_name}}</label><br>
-                        {{-- <label for="selectCourse" class="form-label">Curso: </label><br> --}}
+                        @if ($current_semester)
                         <label for="selectCourse" class="form-label">Semestre: {{$current_semester->semester_name}}</label><br>
+                        @else
+                        <label for="selectCourse" class="form-label">Semestre: No disponible</label><br>
+                        @endif
                     </div>
                     <div class="mb-4 p-3">
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col" style="text-align: center;">Asignatura</th>
-                                    <th scope="col" style="text-align: center;">Notas parciales</th>
-                                    <th scope="col" style="text-align: center, margin-left:2px;">Promedio</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>LENG. Y COMUNICACIÓN</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>INGLÉS</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>EDUC. MATEMÁTICAS</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>HISTORIA, GEOGR., Y SOC.</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>CIENCIAS NATURALES</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>EDUC. ARTÍSTICA</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>EDUC. TECNOLÓGICA</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>MÚSICA</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>EDUC. FÍSICA</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                                <tr>
-                                    <td>RELIGIÓN</td>
-                                    <td>
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-                                        <input type="number" class="grade-input" min="1" max="7" step="0.1" onchange="calculateAverage(this)">
-
-
-                                    </td>
-                                    <td class="average-cell"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div style="display: flex; justify-content: center;">
-                        <button type="submit" class="mt-3 btn btn-sm btn-outline-primary" style="align-self: center; color: black; border-color: black;"><i class="bi bi-check2"></i> Guardar</button>
+                        <form action="{{ route('grades.update') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="student_id" value="{{ $student->id }}">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" style="text-align: center;">Asignatura</th>
+                                        <th scope="col" style="text-align: center;">Notas parciales</th>
+                                        <th scope="col" style="text-align: center, margin-left:2px;">Promedio</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($subjects as $subject)
+                                    <tr>
+                                        <td>{{ $subject->name }}</td>
+                                        <td>
+                                            @for ($i = 0; $i < 12; $i++)
+                                            @if (isset($loop) && isset($loop->parent))
+                                            <input type="number" class="grade-input" min="1" max="7" step="0.1" name="grades[{{ $loop->parent->index }}][grades][]" onchange="calculateAverage(this)">
+                                            @else
+                                            <input type="number" class="grade-input" min="1" max="7" step="0.1" name="grades[{{ $i }}][grades][]" onchange="calculateAverage(this)">
+                                            @endif
+                                            @endfor
+                                        </td>
+                                        <td class="average-cell"></td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                            <div style="display: flex; justify-content: center;">
+                                <button type="submit" class="mt-3 btn btn-sm btn-outline-primary" style="align-self: center; color: black; border-color: black;"><i class="bi bi-check2"></i> Guardar</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

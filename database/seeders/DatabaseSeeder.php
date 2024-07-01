@@ -17,5 +17,8 @@ class DatabaseSeeder extends Seeder
             AcademicSettingSeeder::class,
             PermissionSeeder::class,
         ]);
+
+        $this->call(SubjectSeeder::class);
+
     }
 }
