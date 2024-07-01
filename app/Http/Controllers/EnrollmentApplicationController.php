@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\EnrollmentApplication;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EnrollmentApplicationMail;
 use Illuminate\Validation\ValidationException;
 use App\Repositories\EnrollmentApplicationRepository;
 use App\Http\Requests\StoreEnrollmentApplicationRequest;
-use App\Http\Requests\UpdateEnrollmentApplicationRequest;
-use Illuminate\Support\Facades\DB;
 
 class EnrollmentApplicationController extends Controller
 {
@@ -32,11 +31,12 @@ class EnrollmentApplicationController extends Controller
 
         try {
             $this->EnrollmentApplicationRepository->store($request->validated());
-            // Retornar una respuesta de redirección con un mensaje de éxito
+
+            Mail::to('sunflower_afta@gmail.com')->send(new EnrollmentApplicationMail($request->validated()));
             return redirect()->route('registrationApplication')->with('success', 'Solicitud enviada con éxito.');
 
         } catch (ValidationException $e) {
-            // Capturar la excepción de validación y retornar a la vista con los errores
+
             return redirect()->back()->withErrors($e->getMessage());
         }
 
