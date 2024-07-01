@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>Sunflower School | Editar o agregar notas</title>
 @section('content')
     <div class="container">
         <div class="row justify-content-start">
@@ -47,7 +47,7 @@
                                                         $subjectGrades = $grades->get($subject->id) ?? collect([]);
                                                     @endphp
                                                     @for ($i = 0; $i < 12; $i++)
-                                                        <input type="number" class="grade-input" min="1"
+                                                        <input type="number" class="grade-input" min="2"
                                                             max="7" step="0.1"
                                                             name="grades[{{ $subject->id }}][]"
                                                             value="{{ $subjectGrades->get($i)->grade ?? '' }}"

@@ -83,7 +83,7 @@ class ManageGradesController extends Controller
         }
 
         if (!$current_semester) {
-            return redirect()->back()->withError('No se encontró un semestre actual.');
+            return redirect()->back()->withError('No se encontró un semestre actual. Verifique la fecha del sistema.');
         }
 
         $subjects = Subject::all();
