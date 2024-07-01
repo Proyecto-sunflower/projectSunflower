@@ -9,12 +9,12 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Añadir Profesor
+                        <i class="bi bi-person-lines-fill"></i> Registrar profesor
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Añadir Profesor</li>
+                            <li class="breadcrumb-item active" aria-current="page">Registrar profesor</li>
                         </ol>
                     </nav>
 
@@ -50,7 +50,7 @@
                                 <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Ej: Avenida Génerica #123" required value="{{old('address')}}">
                             </div>
                             <div class="col-md-12">
-                                <label for="inputAddress2" class="form-label">Dirección #2</label>
+                                <label for="inputAddress2" class="form-label">Dirección #2 (Opcional)</label>
                                 <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Ej: Avenida Génerica #123" value="{{old('address2')}}">
                             </div>
                             <div class="col-md-4">
