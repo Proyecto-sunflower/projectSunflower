@@ -17,11 +17,13 @@ class StudentParentInfo extends Model
      */
     protected $fillable = [
         'student_id',
-        'father_name',
-        'father_phone',
-        'mother_name',
-        'mother_phone',
-        'parent_address',
+        'main_parent_name',
+        'main_parent_phone',
+        'substitute_name',
+        'substitute_phone',
+        'main_parent_address',
+        'substitute_address'
+
     ];
 
     /**

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<title>Sunflower School | Lista de Estudiantes</title>
+
 @section('content')
 <div class="container">
     <div class="row justify-content-start">
@@ -8,22 +10,22 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-person-lines-fill"></i> Student List
+                        <i class="bi bi-person-lines-fill"></i> Lista de Estudiantes
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Student List</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Lista de Estudiantes</li>
                         </ol>
                     </nav>
                     @include('session-messages')
-                    <h6>Filter list by:</h6>
+                    <h6>Filtrar lista por:</h6>
                     <div class="mb-4 mt-4">
                         <form class="row" action="{{route('student.list.show')}}" method="GET">
                             <div class="col">
                                 <select onchange="getSections(this);" class="form-select" aria-label="Class" name="class_id" required>
                                     @isset($school_classes)
-                                        <option selected disabled>Please select a class</option>
+                                        <option selected disabled>Porfavor seleccione un curso</option>
                                         @foreach ($school_classes as $school_class)
                                             <option value="{{$school_class->id}}" {{($school_class->id == request()->query('class_id'))?'selected="selected"':''}}>{{$school_class->class_name}}</option>
                                         @endforeach
@@ -36,49 +38,49 @@
                                 </select>
                             </div>
                             <div class="col">
-                                <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-counterclockwise"></i> Load List</button>
+                                <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-counterclockwise"></i> Buscar</button>
                             </div>
                         </form>
-                        @foreach ($studentList as $student)
+                        {{-- @foreach ($studentList as $student)
                             @if ($loop->first)
-                                <p class="mt-3"><b>Section:</b> {{$student->section->section_name}}</p>
+                                <p class="mt-3"><b>Sección:</b> {{$student->section->section_name}} </p>
                                 @break
                             @endif
-                        @endforeach
+                        @endforeach --}}
                         <div class="bg-white border shadow-sm p-3 mt-4">
                             <table class="table table-responsive">
                                 <thead>
                                     <tr>
-                                        <th scope="col">ID Card Number</th>
-                                        <th scope="col">Photo</th>
-                                        <th scope="col">First Name</th>
-                                        <th scope="col">Last Name</th>
-                                        <th scope="col">Email</th>
-                                        <th scope="col">Phone</th>
-                                        <th scope="col">Actions</th>
+                                        <th scope="col">R.U.T</th>
+                                        {{-- <th scope="col">Foto</th> --}}
+                                        <th scope="col">Nombre</th>
+                                        <th scope="col">Apellido</th>
+                                        {{-- <th scope="col">Email</th> --}}
+                                        {{-- <th scope="col">Telefono</th> --}}
+                                        <th scope="col">Acciones</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($studentList as $student)
                                     <tr>
                                         <th scope="row">{{$student->id_card_number}}</th>
-                                        <td>
+                                        {{-- <td>
                                             @if (isset($student->student->photo))
-                                                <img src="{{asset('/storage'.$student->student->photo)}}" class="rounded" alt="Profile picture" height="30" width="30">
+                                                <img src="{{asset('/storage'.$student->student->photo)}}" class="rounded" alt="Foto de perfil" height="30" width="30">
                                             @else
                                                 <i class="bi bi-person-square"></i>
                                             @endif
-                                        </td>
+                                        </td> --}}
                                         <td>{{$student->student->first_name}}</td>
                                         <td>{{$student->student->last_name}}</td>
-                                        <td>{{$student->student->email}}</td>
-                                        <td>{{$student->student->phone}}</td>
+                                        {{-- <td>{{$student->student->email}}</td>
+                                        <td>{{$student->student->phone}}</td> --}}
                                         <td>
                                             <div class="btn-group" role="group">
-                                                <a href="{{route('student.attendance.show', ['id' => $student->student->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Attendance</a>
-                                                <a href="{{url('students/view/profile/'.$student->student->id)}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Profile</a>
+                                                {{-- <a href="{{route('student.attendance.show', ['id' => $student->student->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Asistencia</a>
+                                                <a href="{{url('students/view/profile/'.$student->student->id)}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-eye"></i> Perfil</a> --}}
                                                 @can('edit users')
-                                                <a href="{{route('student.edit.show', ['id' => $student->student->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-pen"></i> Edit</a>
+                                                <a href="{{route('student.edit.show', ['id' => $student->student->id])}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-pen"></i> Editar</a>
                                                 @endcan
                                                 {{-- <button type="button" class="btn btn-sm btn-primary"><i class="bi bi-trash2"></i> Delete</button> --}}
                                             </div>
@@ -99,14 +101,14 @@
     function getSections(obj) {
         var class_id = obj.options[obj.selectedIndex].value;
 
-        var url = "{{route('get.sections.courses.by.classId')}}?class_id=" + class_id 
+        var url = "{{route('get.sections.courses.by.classId')}}?class_id=" + class_id
 
         fetch(url)
         .then((resp) => resp.json())
         .then(function(data) {
             var sectionSelect = document.getElementById('section-select');
             sectionSelect.options.length = 0;
-            data.sections.unshift({'id': 0,'section_name': 'Please select a section'})
+            data.sections.unshift({'id': 0,'section_name': 'Porfavor seleccione un paralelo'})
             data.sections.forEach(function(section, key) {
                 sectionSelect[key] = new Option(section.section_name, section.id);
             });

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Mark;
+use App\Models\Grade;
 use App\Models\StudentParentInfo;
 use App\Models\StudentAcademicInfo;
 use Spatie\Permission\Traits\HasRoles;
@@ -34,8 +35,8 @@ class User extends Authenticatable
         'zip',
         'photo',
         'birthday',
-        'religion',
-        'blood_type',
+        // 'religion',
+        // 'blood_type',
         'role',
     ];
 
@@ -80,5 +81,15 @@ class User extends Authenticatable
     public function marks()
     {
         return $this->hasMany(Mark::class, 'student_id', 'id');
+    }
+
+    public function grades()
+    {
+        return $this->hasMany(Grade::class);
+    }
+
+    public function subjects()
+    {
+        return $this->hasManyThrough(Subject::class, Grade::class, 'user_id', 'id', 'id', 'subject_id');
     }
 }

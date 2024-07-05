@@ -26,33 +26,34 @@ class StudentStoreRequest extends FormRequest
         return [
             'first_name'        => 'required|string',
             'last_name'         => 'required|string',
-            'email'             => 'required|string|email|max:255|unique:users',
+            'email'             => 'nullable|string|email|max:255|unique:users',
             'gender'            => 'required|string',
             'nationality'       => 'required|string',
-            'phone'             => 'required|string',
+            // 'phone'             => 'required|string',
             'address'           => 'required|string',
             'address2'          => 'nullable|string',
             'city'              => 'required|string',
-            'zip'               => 'required|string',
+            'zip'               => 'nullable|string',
             'photo'             => 'nullable|string',
             'birthday'          => 'required|date',
-            'religion'          => 'required|string',
-            'blood_type'        => 'required|string',
-            'password'          => 'required|string|min:8',
+            // 'religion'          => 'required|string',
+            // 'blood_type'        => 'required|string',
+            // 'password'          => 'required|string|min:8',
 
             // Parents' information
-            'father_name'       => 'required|string',
-            'father_phone'      => 'required|string',
-            'mother_name'       => 'required|string',
-            'mother_phone'      => 'required|string',
-            'parent_address'    => 'required|string',
+            'main_parent_name'       => 'required|string',
+            'main_parent_phone'      => 'required|string',
+            'substitute_name'       => 'required|string',
+            'substitute_phone'      => 'required|string',
+            'main_parent_address'    => 'required|string',
+            'substitute_address'    => 'nullable|string',
 
             // Academic information
-            'class_id'          => 'required',
-            'section_id'        => 'required',
-            'board_reg_no'      => 'string',
-            'session_id'        => 'required',
-            'id_card_number'    => 'required',
+            'class_id'          => 'nullable|string',
+            'section_id'        => 'nullable|string',
+            //'board_reg_no'      => 'nullable|string',
+            'session_id'        => 'nullable|string',
+            'id_card_number'    => 'required|string|regex:/^\d{2,3}\.\d{3}\.\d{3}-[\dK]$/', // refers to R.U.T
         ];
     }
 }

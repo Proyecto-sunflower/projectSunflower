@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Database\QueryException;
 use App\Models\SchoolClass;
 use Illuminate\Http\Request;
 use App\Interfaces\SchoolClassInterface;
 use App\Interfaces\SchoolSessionInterface;
 use App\Http\Requests\SchoolClassStoreRequest;
+use App\Http\Requests\SectionStoreRequest;
+use App\Models\Section;
 use App\Traits\SchoolSession;
 
 class SchoolClassController extends Controller
@@ -18,7 +21,7 @@ class SchoolClassController extends Controller
 
     /**
     * Create a new Controller instance
-    * 
+    *
     * @param SchoolClassInterface $schoolClassRepository
     * @return void
     */
@@ -64,7 +67,15 @@ class SchoolClassController extends Controller
         try {
             $this->schoolClassRepository->create($request->validated());
 
-            return back()->with('status', 'Class creation was successful!');
+            return back()->with('status', '¡El curso ha sido creado con éxito!');
+        } catch (QueryException $e) {
+
+            $errorCode = $e->errorInfo[1];
+            if($errorCode == 1062){
+                return back()->withError('Este curso ya fue creado.');
+            }
+
+            return back()->withError($e->getMessage());
         } catch (\Exception $e) {
             return back()->withError($e->getMessage());
         }
@@ -127,5 +138,20 @@ class SchoolClassController extends Controller
     public function destroy(SchoolClass $schoolClass)
     {
         //
+    }
+
+    public function createSection(SectionStoreRequest $request)
+    {
+        try {
+            $section = new Section();
+            $section->session_id = $request->session_id;
+            $section->section_name = $request->section_name;
+            $section->class_id = $request->class_id;
+            $section->save();
+
+            return redirect()->back()->with('success', 'Nivel creado exitosamente.');
+        } catch (\Exception $e) {
+            return redirect()->back()->withError($e->getMessage());
+        }
     }
 }
