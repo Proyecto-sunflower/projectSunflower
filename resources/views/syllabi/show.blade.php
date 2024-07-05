@@ -8,13 +8,13 @@
             <div class="row pt-2">
                 <div class="col ps-4">
                     <h1 class="display-6 mb-3">
-                        <i class="bi bi-journal-medical"></i> Syllabus
+                        <i class="bi bi-journal-medical"></i> Plan de Estudios
                     </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{route('home')}}">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Courses</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Syllabus</li>
+                            <li class="breadcrumb-item"><a href="{{route('home')}}">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="{{url()->previous()}}">Materias</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Plan de Estudios</li>
                         </ol>
                     </nav>
                     <div class="mb-4 mt-4">
@@ -22,7 +22,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">Syllabus Name</th>
+                                        <th scope="col">Nombre del Plan de Estudios</th>
                                         <th scope="col">Actions</th>
                                     </tr>
                                 </thead>
@@ -32,7 +32,7 @@
                                             <td>{{$syllabus->syllabus_name}}</td>
                                             <td>
                                                 <div class="btn-group" role="group">
-                                                    <a href="{{asset('storage/'.$syllabus->syllabus_file_path)}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-download"></i> Download</a>
+                                                    <a href="{{asset('storage/'.$syllabus->syllabus_file_path)}}" role="button" class="btn btn-sm btn-outline-primary"><i class="bi bi-download"></i> Descargar</a>
                                                 </div>
                                             </td>
                                         </tr>

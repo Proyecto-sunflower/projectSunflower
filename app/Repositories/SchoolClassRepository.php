@@ -34,7 +34,7 @@ class SchoolClassRepository implements SchoolClassInterface {
 
         $sectionRepository = new SectionRepository();
 
-        $school_sections = $sectionRepository->getAllBySession($session_id);
+        $school_sections = $sectionRepository->getAllBySession($session_id)->sortBy('section_name');
 
         $data = [
             'school_classes' => $school_classes,

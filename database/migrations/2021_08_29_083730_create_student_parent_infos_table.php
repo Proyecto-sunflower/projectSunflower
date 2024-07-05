@@ -16,11 +16,13 @@ class CreateStudentParentInfosTable extends Migration
         Schema::create('student_parent_infos', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('student_id');
-            $table->string('father_name');
-            $table->string('father_phone');
-            $table->string('mother_name');
-            $table->string('mother_phone');
-            $table->string('parent_address');
+            $table->string('main_parent_name');
+            $table->string('main_parent_phone');
+            $table->string('substitute_name');
+            $table->string('substitute_phone');
+            $table->string('main_parent_address');
+            $table->string('substitute_address')->nullable();
+
             $table->timestamps();
         });
     }
