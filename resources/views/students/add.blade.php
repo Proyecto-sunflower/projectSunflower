@@ -24,25 +24,32 @@
                             <small><i class="bi bi-exclamation-diamond-fill me-2"></i>
                                 Recuerde crear un "curso" y un "grado" relacionadas antes de agregar un
                                 estudiante.</small>
-                        </p>
-                        <div class="mb-4">
-                            <form class="row g-3" action="{{ route('school.student.create') }}" method="POST">
-                                @csrf
+                            </p>
+                            <div class="mb-4">
+                                <form class="row g-3" action="{{ route('school.student.create') }}" method="POST">
+                                    @csrf
                                 <div class="row g-3">
                                     <div class="col-md-3">
                                         <label for="inputFirstName" class="form-label">Nombres<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="text" class="form-control" id="inputFirstName" name="first_name"
+                                            class="bi bi-asterisk text-primary"></i></sup></label>
+                                            <input type="text" class="form-control" id="inputFirstName" name="first_name"
                                             placeholder="Ingresar nombres aquí" required value="{{ old('first_name') }}">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="inputLastName" class="form-label">Apellidos<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="text" class="form-control" id="inputLastName" name="last_name"
-                                            placeholder="Ingresar apellidos aquí" required value="{{ old('last_name') }}">
-                                    </div>
-                                    <div class="col-md-3">
-                                        <label for="inputBirthday" class="form-label">Fecha de nacimiento<sup><i
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="inputLastName" class="form-label">Apellidos<sup><i
+                                                class="bi bi-asterisk text-primary"></i></sup></label>
+                                                <input type="text" class="form-control" id="inputLastName" name="last_name"
+                                                placeholder="Ingresar apellidos aquí" required value="{{ old('last_name') }}">
+                                            </div>
+                                            <div class="col-5-md">
+                                                <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i
+                                                            class="bi bi-asterisk text-primary"></i></sup></label>
+                                                <input type="text" class="form-control" id="inputIdCardNumber"
+                                                    name="id_card_number" placeholder="Ej: 11.111.111-1" required
+                                                    value="{{ old('id_card_number') }}">
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="inputBirthday" class="form-label">Fecha de nacimiento<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="date" class="form-control" id="inputBirthday" name="birthday"
                                             placeholder="Birthday" required value="{{ old('birthday') }}">
@@ -97,13 +104,6 @@
                                             name="nationality" placeholder="Ej: Chileno, ..." required
                                             value="{{ old('nationality') }}">
                                     </div>
-                                    <div class="col-5-md">
-                                        <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="text" class="form-control" id="inputIdCardNumber"
-                                            name="id_card_number" placeholder="Ej: 11.111.111-1" required
-                                            value="{{ old('id_card_number') }}">
-                                    </div>
                                 </div>
                                 <div class="row mt-4 g-3">
                                     <h6>Información de los apoderados</h6>
@@ -150,7 +150,8 @@
                                             value="{{ old('substitute_address') }}">
                                     </div>
                                     <div class="col-3-md">
-                                        <input type="checkbox" id="sameAddressParents" name="sameAddressParents" onchange="toggleParentAddress()">
+                                        <input type="checkbox" id="sameAddressParents" name="sameAddressParents"
+                                            onchange="toggleParentAddress()">
                                         <label for="sameAddressParents"> ¿Misma dirección para el apoderado?</label><br>
                                     </div>
                                 </div>
@@ -243,5 +244,20 @@
             }
         }
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if(session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Estudiante registrado!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        });
+    </script>
+
+
     @include('components.photos.photo-input')
 @endsection

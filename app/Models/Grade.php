@@ -9,7 +9,7 @@ class Grade extends Model
     use HasFactory;
 
     protected $fillable = [
-        'grade', 'user_id', 'subject_id'
+        'grade', 'user_id', 'subject_id', 'grade_index' // Agrega 'grade_index'
     ];
 
     public function user()

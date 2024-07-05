@@ -109,7 +109,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/manageGrades', [ManageGradesController::class, 'index'])->name('manage.manage-grades');
     Route::get('/manageStudentGrades/{id}', [ManageGradesController::class, 'edit'])->name('manage.manage-student-grades');
-    Route::post('/grades/update', [GradeController::class, 'update'])->name('grades.update');
+    Route::post('/grades/update', [ManageGradesController::class, 'update'])->name('grades.update');
+
 
 
     // Attendance

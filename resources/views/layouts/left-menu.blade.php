@@ -35,7 +35,7 @@
                         <ul class="nav collapse {{ request()->is('students*')? 'show' : 'hide' }} bg-white" id="student-submenu">
                             <li class="nav-item w-100" {{ request()->routeIs('student.list.show')? 'style="font-weight:bold;"' : '' }}><a class="nav-link" href="{{route('student.list.show')}}"><i class="bi bi-person-video2 me-2"></i> Ver estudiante</a></li>
                             @if (!session()->has('browse_session_id') && Auth::user()->role == "admin")
-                            <li class="nav-item w-100" {{ request()->routeIs('student.create.show')? 'style="font-weight:bold;"' : '' }}><a class="nav-link" href="{{route('student.create.show')}}"><i class="bi bi-person-plus me-2"></i> Agregar estudiante</a></li>
+                            <li class="nav-item w-100" {{ request()->routeIs('student.create.show')? 'style="font-weight:bold;"' : '' }}><a class="nav-link" href="{{route('student.create.show')}}"><i class="bi bi-person-plus me-2"></i> Registrar estudiante</a></li>
                             @endif
                         </ul>
                     </li>
@@ -46,7 +46,7 @@
                         <ul class="nav collapse {{ request()->is('teachers*')? 'show' : 'hide' }} bg-white" id="teacher-submenu">
                             <li class="nav-item w-100" {{ request()->routeIs('teacher.list.show')? 'style="font-weight:bold;"' : '' }}><a class="nav-link" href="{{route('teacher.list.show')}}"><i class="bi bi-person-video2 me-2"></i> Ver profesores</a></li>
                             @if (!session()->has('browse_session_id') && Auth::user()->role == "admin")
-                            <li class="nav-item w-100" {{ request()->routeIs('teacher.create.show')? 'style="font-weight:bold;"' : '' }}><a class="nav-link" href="{{route('teacher.create.show')}}"><i class="bi bi-person-plus me-2"></i> Agregar profesor</a></li>
+                            <li class="nav-item w-100" {{ request()->routeIs('teacher.create.show')? 'style="font-weight:bold;"' : '' }}><a class="nav-link" href="{{route('teacher.create.show')}}"><i class="bi bi-person-plus me-2"></i> Registrar profesor</a></li>
                             @endif
                         </ul>
                     </li>
@@ -104,7 +104,7 @@
                                 <path d="M235,321.865c4.143,0,7.5-3.357,7.5-7.5V37.5c0-4.143-3.357-7.5-7.5-7.5s-7.5,3.357-7.5,7.5v276.865   C227.5,318.508,230.857,321.865,235,321.865z"/>
                             </g>
                         </svg>
-                            
+
                         <span class="ms-1 d-inline d-sm-none d-md-none d-xl-inline">Administrar notas</span></a>
                     </li>
                     <li class="nav-item border-bottom">

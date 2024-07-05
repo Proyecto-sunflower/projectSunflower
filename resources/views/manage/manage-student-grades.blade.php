@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<title>Sunflower School | Editar o agregar notas</title>
 @section('content')
     <div class="container">
         <div class="row justify-content-start">
@@ -47,7 +47,7 @@
                                                         $subjectGrades = $grades->get($subject->id) ?? collect([]);
                                                     @endphp
                                                     @for ($i = 0; $i < 12; $i++)
-                                                        <input type="number" class="grade-input" min="1"
+                                                        <input type="number" class="grade-input" min="2"
                                                             max="7" step="0.1"
                                                             name="grades[{{ $subject->id }}][]"
                                                             value="{{ $subjectGrades->get($i)->grade ?? '' }}"
@@ -89,5 +89,19 @@
             let average = (count === 0) ? 0 : (sum / count).toFixed(2);
             row.querySelector('.average-cell').innerText = average;
         }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            @if (session('success'))
+                Swal.fire({
+                    icon: 'success',
+                    title: '¡Nota guardada!',
+                    text: '{{ session('success') }}',
+                    confirmButtonText: 'OK'
+                });
+            @endif
+        });
     </script>
 @endsection

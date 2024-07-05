@@ -16,7 +16,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Estudiantes Totales</div>
+                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i>Total de estudiantes registrados</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{$studentCount}}</span>
                                     </div>
@@ -29,7 +29,7 @@
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
 
-                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Profesores Totales</div>
+                                            <div class="fw-bold"><i class="bi bi-person-lines-fill me-3"></i> Total de profesores registrados</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{$teacherCount}}</span>
                                     </div>
@@ -41,7 +41,7 @@
                                 <div class="card-body">
                                     <div class="d-flex justify-content-between align-items-start">
                                         <div class="ms-2 me-auto">
-                                            <div class="fw-bold"><i class="bi bi-diagram-3 me-3"></i> Clases Totales</div>
+                                            <div class="fw-bold"><i class="bi bi-diagram-3 me-3"></i> Cursos existentes</div>
                                         </div>
                                         <span class="badge bg-dark rounded-pill">{{ $classCount }}</span>
                                     </div>
