@@ -30,7 +30,7 @@ class EnrollmentApplicationMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Nueva Solicitud de Matrícula')
+        return $this->subject('Nueva solicitud de matrícula')
                     ->view('emails.enrollment_application');
     }
 }

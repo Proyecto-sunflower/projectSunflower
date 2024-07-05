@@ -32,7 +32,7 @@ class EnrollmentApplicationController extends Controller
         try {
             $this->EnrollmentApplicationRepository->store($request->validated());
 
-            Mail::to('sunflower_afta@gmail.com')->send(new EnrollmentApplicationMail($request->validated()));
+            Mail::to('sunflowerschoolantofagasta@gmail.com')->send(new EnrollmentApplicationMail($request->validated()));
             return redirect()->route('registrationApplication')->with('success', 'Solicitud enviada con éxito.');
 
         } catch (ValidationException $e) {

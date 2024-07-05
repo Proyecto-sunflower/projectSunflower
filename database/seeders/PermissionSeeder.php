@@ -100,9 +100,10 @@ class PermissionSeeder extends Seeder
         // Permission::create(['name' => 'delete sections']);
 
         $user = \App\Models\User::factory()->create([
-            'email' => 'admin@ut.com',
+            'email' => 'sunflowerschoolantofagasta@gmail.com',
             'first_name' => 'Antonio',
             'last_name' => 'Viezaga',
+            'password' => bcrypt('W6Zb!eW.uOTo'),
         ]);
         $user->givePermissionTo(
             'create school sessions',
