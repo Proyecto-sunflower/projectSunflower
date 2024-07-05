@@ -41,12 +41,12 @@
                                 <button type="submit" class="btn btn-primary"><i class="bi bi-arrow-counterclockwise"></i> Buscar</button>
                             </div>
                         </form>
-                        @foreach ($studentList as $student)
+                        {{-- @foreach ($studentList as $student)
                             @if ($loop->first)
                                 <p class="mt-3"><b>Sección:</b> {{$student->section->section_name}} </p>
                                 @break
                             @endif
-                        @endforeach
+                        @endforeach --}}
                         <div class="bg-white border shadow-sm p-3 mt-4">
                             <table class="table table-responsive">
                                 <thead>

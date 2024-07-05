@@ -14,7 +14,7 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{ route('home') }}">Inicio</a></li>
                                 <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Lista de Estudiantes</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Editar Estudiante</li>
+                                <li class="breadcrumb-item active" aria-current="page">Editar estudiante</li>
                             </ol>
                         </nav>
 
@@ -45,24 +45,32 @@
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="date" class="form-control" id="inputBirthday" name="birthday"
                                             placeholder="Fecha de nacimiento" required value="{{ $student->birthday }}">
-                                    </div>
+                                        </div>
+                                        <div class="col-3">
+                                            <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i
+                                                        class="bi bi-asterisk text-primary"></i></sup></label>
+                                            <input type="text" class="form-control" id="inputIdCardNumber"
+                                                name="id_card_number"
+                                                placeholder="e.g. 2021-03-01-02-01 (Year Semester Class Section Roll)" required
+                                                value="{{ $promotion_info->id_card_number }}">
+                                        </div>
                                     <div class="col-3">
                                         <label for="inputAddress" class="form-label">Dirección #1<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputAddress" name="address"
-                                            placeholder="Ej: #Avenida Génerica #123" required
+                                            placeholder="Ej: #Avenida Génerica #123"
                                             value="{{ $student->address }}">
-                                    </div>
-                                    <div class="col-3">
-                                        <label for="inputAddress2" class="form-label">Dirección #2</label>
-                                        <input type="text" class="form-control" id="inputAddress2" name="address2"
+                                        </div>
+                                        <div class="col-3">
+                                            <label for="inputAddress2" class="form-label">Dirección #2</label>
+                                            <input type="text" class="form-control" id="inputAddress2" name="address2"
                                             placeholder="#Ej: Avenida Génerica #123" value="{{ $student->address2 }}">
-                                    </div>
+                                        </div>
                                     <div class="col-2">
                                         <label for="inputCity" class="form-label">Ciudad<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputCity" name="city"
-                                            placeholder="Ej: Antofagasta, Calama..." required value="{{ $student->city }}">
+                                            placeholder="Ej: Antofagasta, Calama..." value="{{ $student->city }}">
                                     </div>
                                     <div class="col-2">
                                         <label for="inputZip" class="form-label">Código postal</label>
@@ -72,7 +80,7 @@
                                     <div class="col-2">
                                         <label for="inputState" class="form-label">Género<sup><i
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <select id="inputState" class="form-select" name="gender" required>
+                                        <select id="inputState" class="form-select" name="gender">
                                             <option value="Male" {{ $student->gender == 'Male' ? 'selected' : null }}>
                                                 Masculino</option>
                                             <option value="Female" {{ $student->gender == 'Female' ? 'selected' : null }}>
@@ -87,7 +95,7 @@
                                                     class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputNationality"
                                             name="nationality" placeholder="ejemplo: Chilena, Argentina, Japonesa..."
-                                            required value="{{ $student->nationality }}">
+                                            value="{{ $student->nationality }}">
                                     </div>
                                     {{-- <div class="col-2">
                                     <label for="inputBloodType" class="form-label">BloodType<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
@@ -118,14 +126,6 @@
                                     <label for="inputPhone" class="form-label">Telefono<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                     <input type="text" class="form-control" id="inputPhone" name="phone" placeholder="+569 98.. ...." required value="{{$student->phone}}">
                                 </div> --}}
-                                    <div class="col-3">
-                                        <label for="inputIdCardNumber" class="form-label">R.U.T<sup><i
-                                                    class="bi bi-asterisk text-primary"></i></sup></label>
-                                        <input type="text" class="form-control" id="inputIdCardNumber"
-                                            name="id_card_number"
-                                            placeholder="e.g. 2021-03-01-02-01 (Year Semester Class Section Roll)" required
-                                            value="{{ $promotion_info->id_card_number }}">
-                                    </div>
                                 </div>
                                 <div class="row mt-4 g-3">
                                     <h6>Información de los apoderados</h6>
@@ -168,7 +168,7 @@
                                         <label for="inputSubstituteParentAddress" class="form-label">Dirección apoderado
                                             suplente<sup><i class="bi bi-asterisk text-primary"></i></sup></label>
                                         <input type="text" class="form-control" id="inputSubstituteParentAddress"
-                                            name="substitute_address" placeholder="Ej: Avenida Génerica #123" required
+                                            name="substitute_address" placeholder="Ej: Avenida Génerica #123"
                                             value="{{ $parent_info->substitute_address }}">
                                     </div>
                                 </div>
